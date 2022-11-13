@@ -2,7 +2,6 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const NavWrapper = styled.div`
-box-sizing: border-box;
   display: flex;
 `;
 const NavLinks = styled.div`
@@ -22,7 +21,7 @@ const NavLink = styled(Link)`
   color: inherit;
   text-decoration: none;
   padding: 2%;
-  border: 1%;
+  border: 1;
   &:hover {
     border-style: solid;
   }

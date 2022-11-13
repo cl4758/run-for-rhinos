@@ -1,30 +1,64 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Wrapper } from './common';
+import { IconBrandStrava, IconBrandInstagram, IconBrandTiktok } from '@tabler/icons';
 
-const FooterWrapper = styled.div`
+const IconWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
-`;
-const FooterContent = styled.div`
-  padding-right: 5vw;
+  justify-content: space-around;
+  justify-self: flex-end;
+  align-items: center;
+  width: 40%;
 `;
 
 const Text = styled.p`
-font-size: 0.8em;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  font-size: 0.8em;
+  white-space: pre-wrap;
   > a {
     color: inherit;
   }
 `;
+const FooterWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  & ${Text} {
+    grid-column: 2;
+  }
+  & ${IconWrapper} {
+    grid-column: 3;
+  }
+`;
+
+
 
 function Footer() {
+  const links = [{ link: 'https://instagram.com/timgoesfar', label: <IconBrandInstagram /> },
+  { link: 'https://www.tiktok.com/@timdoeseverything', label: <IconBrandTiktok /> },
+  { link: 'https://www.strava.com/athletes/66674345', label: <IconBrandStrava /> }];
+
+  const icons = links.map((link) => {
+    return (
+      <a
+        key={link.link}
+        href={link.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {link.label}
+      </a>
+    );
+  });
+
   return (
     <FooterWrapper>
-      <FooterContent>
-        <Text>
-          Raising money for <a href="https://vetpaw.org/" rel="noreferrer" target="_blank">Vetpaw</a>
-        </Text>
-      </FooterContent>
+      <Text>
+        Raising money for <a href="https://vetpaw.org/" rel="noreferrer" target="_blank">Vetpaw</a>
+      </Text>
+      <IconWrapper>
+        {icons}
+      </IconWrapper>
     </FooterWrapper>
   );
 }

@@ -5,9 +5,11 @@ import NavBar from './NavBar';
 
 const LayoutContent = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   min-height: 83vh;
   margin-left: 5vw;
+  margin-right: 5vw;
+  justify-content: center;
 `;
 
 function Layout({ children }: { children: any }) {
