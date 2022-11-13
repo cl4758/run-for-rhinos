@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 const LayoutContent = styled.div`
   display: flex;
   /* flex-direction: column; */
-  min-height: 83vh;
+  min-height: 80vh;
   margin-left: 5vw;
   margin-right: 5vw;
   justify-content: center;

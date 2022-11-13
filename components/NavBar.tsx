@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 const NavWrapper = styled.div`
   display: flex;
+  margin-bottom: 2vh;
 `;
 const NavLinks = styled.div`
   box-sizing: border-box;
@@ -14,6 +16,9 @@ const NavLinks = styled.div`
   display: flex;
   justify-content: space-around;
   min-height: 6vh;
+  .active {
+     border-style: solid;
+  }
   
 `;
 const NavLink = styled(Link)`
@@ -28,13 +33,14 @@ const NavLink = styled(Link)`
 `;
 
 function NavBar() {
+  const router = useRouter();
   return (
     <NavWrapper>
       <NavLinks>
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/map">Map</NavLink>
-        <NavLink href="/stats">Stats</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
+        <NavLink href="/" className={router.pathname == "/" ? "active" : ""}>Home</NavLink>
+        <NavLink href="/map" className={router.pathname == "/map" ? "active" : ""}>Map</NavLink>
+        <NavLink href="/stats" className={router.pathname == "/stats" ? "active" : ""}>Stats</NavLink>
+        <NavLink href="/contact" className={router.pathname == "/contact" ? "active" : ""}>Contact</NavLink>
       </NavLinks>
     </NavWrapper>
   );
