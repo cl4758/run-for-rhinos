@@ -111,7 +111,7 @@ function NavBar() {
         <NavLink href="/" className={router.pathname == "/" ? "active" : ""} active={router.pathname == "/"}>Home</NavLink>
         <NavLink href="/map" className={router.pathname == "/map" ? "active" : ""} active={router.pathname == "/map"}>Map</NavLink>
         <NavLink href="/stats" className={router.pathname == "/stats" ? "active" : ""} active={router.pathname == "/stats"}>Stats</NavLink>
-        <NavLink href="/contact" className={router.pathname == "/contact" ? "active" : ""} active={router.pathname == "/contact"}>Contact</NavLink>
+        <NavLink href="/about" className={router.pathname == "/about" ? "active" : ""} active={router.pathname == "/about"}>About</NavLink>
       </NavLinks>
       <Button><a href="https://www.gofundme.com/f/running-across-america-for-rhinos" rel="noreferrer" target="_blank">Donate</a></Button>
     </NavWrapper>

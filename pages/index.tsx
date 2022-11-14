@@ -47,44 +47,43 @@ export default function Home() {
       <Head>
         <title>Run for Rhinos</title>
         <meta name="description" content="Run for Rhinos Site" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        {/* <ViewSource pathname="pages/background.tsx" /> */}
-        <div>
-          <BackgroundImage
-            alt="Rhino in front of a rainbow"
-            src={rhino}
-            placeholder="blur"
-            quality={100}
-            fill
-            sizes="100vw"
-            style={{
-              objectFit: 'cover',
-            }}
-          />
-          <OverlayImage
-            alt="overlay"
-            src={overlay}
-            placeholder="blur"
-            quality={100}
-            fill
-            sizes="100vw"
-            style={{
-              objectFit: 'cover',
-            }} />
-        </div>
-        {/* <h1>
+      {/* <ViewSource pathname="pages/background.tsx" /> */}
+      <div>
+        <BackgroundImage
+          alt="Rhino in front of a rainbow"
+          src={rhino}
+          placeholder="blur"
+          quality={100}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: 'cover',
+          }}
+        />
+        <OverlayImage
+          alt="overlay"
+          src={overlay}
+          placeholder="blur"
+          quality={100}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: 'cover',
+          }} />
+      </div>
+      {/* <h1>
           Running across the United States
         </h1> */}
 
-        <div>
-          <Description>
-            {text}
-          </Description>
-        </div>
-      </main >
+      <div>
+        <Description>
+          {text}
+        </Description>
+      </div>
     </div >
   )
 }
