@@ -1,76 +1,90 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React, { useState, useEffect } from 'react'
+import Head from 'next/head';
+import Image from 'next/image';
+import styled from 'styled-components';
+import rhino from '../public/rhino_rainbow.jpg';
+import overlay from '../public/black.jpg';
+
+const BackgroundImage = styled(Image)`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+`;
+
+const OverlayImage = styled(Image)`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 30%;
+`;
+
+const Description = styled.p`
+  color: inherit;
+  align-items: center;
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
+`;
 
 export default function Home() {
+  const first_text = "3047 miles, 12 states, 90 days";
+
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setText(first_text.slice(0, text.length + 1));
+    }, 50);
+    return () => clearTimeout(timeout);
+  }, [text]);
+
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Run for Rhinos</title>
         <meta name="description" content="Run for Rhinos Site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 >
-          Run for rhinos!
-        </h1>
+      <main>
+        {/* <ViewSource pathname="pages/background.tsx" /> */}
+        <div>
+          <BackgroundImage
+            alt="Rhino in front of a rainbow"
+            src={rhino}
+            placeholder="blur"
+            quality={100}
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: 'cover',
+            }}
+          />
+          <OverlayImage
+            alt="overlay"
+            src={overlay}
+            placeholder="blur"
+            quality={100}
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: 'cover',
+            }} />
+        </div>
+        {/* <h1>
+          Running across the United States
+        </h1> */}
 
-        <p>stuff</p>
-        {/* <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div> */}
-      </main>
-
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
-    </div>
+        <div>
+          <Description>
+            {text}
+          </Description>
+        </div>
+      </main >
+    </div >
   )
 }

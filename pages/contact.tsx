@@ -8,11 +8,6 @@ const Wrapper = styled.div`
 
 const FormWrapper = styled.form`
   display: grid;
-  /* flex-direction: column;
-  justify-content: space-evenly; */
-  /* > label {
-    display: block;
-  } */
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   height: 50vh;
