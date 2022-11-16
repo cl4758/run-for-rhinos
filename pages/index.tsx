@@ -22,16 +22,29 @@ const OverlayImage = styled(Image)`
   opacity: 30%;
 `;
 
-const Description = styled.p`
-  color: inherit;
-  align-items: center;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+const Description = styled.div`
   @media (min-width: 768px) {
-    font-size: 36px;
+    font-size: 3em;
+    width: 100%;
   }
+  padding-top: 30vh;
+  color: inherit;
+  /* align-items: center;
+  align-self: center; */
+  font-size: 2.85em;
+  width: 70%;
+  text-align: center;
+
 `;
 
 export default function Home() {
-  const first_text = "3047 miles, 12 states, 90 days";
+  const first_text = "3079 miles, 12 states, 90 days";
 
   const [text, setText] = useState("");
 
@@ -51,7 +64,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <ViewSource pathname="pages/background.tsx" /> */}
       <div>
         <BackgroundImage
           alt="Rhino in front of a rainbow"
@@ -79,11 +91,11 @@ export default function Home() {
           Running across the United States
         </h1> */}
 
-      <div>
+      <Wrapper>
         <Description>
           {text}
         </Description>
-      </div>
+      </Wrapper>
     </div >
   )
 }

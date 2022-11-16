@@ -49,7 +49,7 @@ function About() {
 
   return (
     <Wrapper>
-      bloop
+      If I have a lot of text here even more text here
     </Wrapper>
   );
 }

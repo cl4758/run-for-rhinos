@@ -7,7 +7,7 @@ const IconWrapper = styled.div`
   justify-content: space-around;
   justify-self: flex-end;
   align-items: center;
-  width: 40%;
+  width: 30%;
 `;
 
 const Text = styled.p`
@@ -28,6 +28,10 @@ const FooterWrapper = styled.div`
   }
   & ${IconWrapper} {
     grid-column: 3;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
