@@ -11,7 +11,7 @@ export default async function handler(
 ) {
   const url = 'https://www.strava.com/api/v3/athlete';
 
-  console.log(process.env.ACCESS_TOKEN);
+  console.log("in athlete api");
 
   // const options = {
   //   method: "GET",
@@ -30,7 +30,7 @@ export default async function handler(
   await axios
     .get(url, { headers: { 'Authorization': `Bearer ${process.env.ACCESS_TOKEN!}` } })
     .then(({ data }) => {
-      // console.log(data);
+      console.log("data from api endpoint: ", data);
       // res.status(200).json({ data });
       res.status(200).send(data);
     })
