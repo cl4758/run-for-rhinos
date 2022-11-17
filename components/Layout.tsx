@@ -5,11 +5,15 @@ import NavBar from './NavBar';
 
 const LayoutContent = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  min-height: 80vh;
   margin-left: 5vw;
   margin-right: 5vw;
   justify-content: center;
+`;
+
+const LayoutWrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 function Layout({ children }: { children: any }) {
@@ -19,13 +23,13 @@ function Layout({ children }: { children: any }) {
   { link: '/about', label: 'About' }];
 
   return (
-    <>
+    <LayoutWrapper>
       <NavBar links={routes} />
       <LayoutContent>
         {children}
       </LayoutContent>
       <Footer />
-    </>
+    </LayoutWrapper>
   )
 };
 
