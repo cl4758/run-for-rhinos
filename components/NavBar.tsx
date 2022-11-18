@@ -21,19 +21,6 @@ const NavLinks = styled.div`
   }
 `;
 
-const DropdownMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  position: absolute;
-  top: 8vh;
-  left: 4vw;
-  @media (min-width: 768px) {
-    display: none;
-  }
-  z-index: 1;
-`;
-
 const NavLink = styled(Link)`
   color: inherit;
   text-decoration: none;
@@ -164,14 +151,35 @@ const HeaderOverlay = styled(Image)`
   opacity: 15%;
 `;
 
+const DropdownMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  @media (min-width: 768px) {
+    display: none;
+  }
+  padding-left: 3vw;
+  z-index: 1;
+`;
+
+const DropdownMenuWrapper = styled.div`
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  @media (min-width: 768px) {
+    display: none;
+  }
+  z-index: 1;
+  height: fit-content;
+`;
+
 const MenuOverlay = styled(Image) <{ background: string }>`
 @media (min-width: 768px) {
   display: none;
 }
-  position: fixed;
-  top: 10vh;
+  position: absolute;
   left: 0;
-  height: 13vh;
+  height: 110%;
   width: 100vw;
   overflow: hidden;
   z-index: 1;
@@ -212,12 +220,12 @@ function NavBar({ links }: NavigationProps) {
       <NavWrapper>
         <Title>Run for Rhinos</Title>
         <MenuBurger onClick={handleOpen}><IconMenu2 /></MenuBurger>
-        {open ? <>
+        {open ? <DropdownMenuWrapper>
           <MenuOverlay alt="overlay"
             src={overlay}
             placeholder="blur"
             background={router.pathname} />
-          <DropdownMenu>{items}</DropdownMenu></> : <></>}
+          <DropdownMenu>{items}</DropdownMenu></DropdownMenuWrapper> : <></>}
         <NavLinks>
           {items}
         </NavLinks>
