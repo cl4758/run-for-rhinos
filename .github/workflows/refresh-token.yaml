@@ -1,0 +1,12 @@
+name: Refresh token
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test cron job
+        run: |
+          curl --request POST \
+          --url 'https://run-for-rhinos.vercel.app/api/test'
