@@ -7,8 +7,9 @@ const LayoutContent = styled.div`
   display: flex;
   margin-left: 5vw;
   margin-right: 5vw;
+  margin: 11vh 5vw 5vh 5vw;
   justify-content: center;
-  height: 100%;
+  /* height: 100%; */
   @media (max-width: 768px) {
     height: 100%;
   }

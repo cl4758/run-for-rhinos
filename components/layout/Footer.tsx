@@ -21,7 +21,7 @@ const Text = styled.p`
   }
 `;
 const FooterWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   display: grid;

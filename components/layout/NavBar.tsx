@@ -19,6 +19,7 @@ const NavLinks = styled.div`
   @media (max-width: 768px) {
     display: none;
   }
+  z-index: 1;
 `;
 
 const NavLink = styled(Link)`
@@ -63,7 +64,7 @@ const NavLink = styled(Link)`
       color: #9E9EFF;
     }
   }
-
+  z-index: 1;
 `;
 
 const Title = styled.h2`
@@ -72,8 +73,10 @@ const Title = styled.h2`
   font-weight: 500;
   @media (max-width: 768px) {
     width: 50%;
+    margin-left: 4vw;
   }
   z-index: 1;
+  margin-left: 1vw;
 `;
 
 const Button = styled.button`
@@ -136,8 +139,10 @@ const NavWrapper = styled.div`
   align-content: center;
   background-blend-mode: darken;
   display: flex;
-  margin: 0 4vw 0 4vw;
   height: 10vh;
+  margin: 0;
+  position: fixed;
+  width: 94vw;
 `;
 
 const HeaderOverlay = styled(Image)`

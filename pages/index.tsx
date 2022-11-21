@@ -22,11 +22,20 @@ const OverlayImage = styled(Image)`
   opacity: 30%;
 `;
 
-const Wrapper = styled.div`
+const DescriptionWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
 `;
+
+const ScrollArea = styled.div`
+  height: 90vh;
+  width: 100%;
+  margin-top: 10vh;
+`;
+
+const Wrapper = styled.div`
+width: 100%`;
 
 const Description = styled.div`
   @media (min-width: 768px) {
@@ -56,7 +65,7 @@ export default function Home() {
   }, [text]);
 
   return (
-    <div>
+    <Wrapper>
       <Head>
         <title>Run for Rhinos</title>
         <meta name="description" content="Run for Rhinos Site" />
@@ -64,7 +73,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
+      {/* <div> */}
+      <ScrollArea>
         <BackgroundImage
           alt="Rhino in front of a rainbow"
           src={rhino}
@@ -86,16 +96,19 @@ export default function Home() {
           style={{
             objectFit: 'cover',
           }} />
-      </div>
-      {/* <h1>
+        {/* </div> */}
+        {/* <h1>
           Running across the United States
         </h1> */}
 
-      <Wrapper>
-        <Description>
-          {text}
-        </Description>
-      </Wrapper>
-    </div >
+        <DescriptionWrapper>
+          <Description>
+            {text}
+          </Description>
+        </DescriptionWrapper>
+      </ScrollArea>
+
+      <ScrollArea>well hello</ScrollArea>
+    </Wrapper>
   )
 }
