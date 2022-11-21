@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import StatsBar from '../components/dashboard/StatsBar';
+import StatsChart from '../components/dashboard/StatsChart';
 
 const DashboardWrapper = styled.div`
   width: 100%;
@@ -30,6 +31,7 @@ function Dashboard() {
   return (
     <DashboardWrapper>
       <StatsBar cards={stats} />
+      <StatsChart />
     </DashboardWrapper>
   )
 }
