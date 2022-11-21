@@ -20,7 +20,8 @@ interface StatsBarProps {
   cards: {
     title: string,
     data: number,
-    metric?: string
+    metric?: string,
+    goal?: number
   }[]
 }
 
@@ -29,7 +30,7 @@ function StatsBar({ cards }: StatsBarProps) {
   const items = cards.map((card, index) => {
     return (
       <StatsCard key={card.title}
-        title={card.title} data={card.data} metric={card.metric} />
+        title={card.title} data={card.data} metric={card.metric} goal={card.goal} />
     );
   });
 

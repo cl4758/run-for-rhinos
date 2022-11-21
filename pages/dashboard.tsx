@@ -11,12 +11,14 @@ const DashboardWrapper = styled.div`
 `;
 
 const stats = [{
-  title: 'Days',
-  data: 3
+  title: 'Day',
+  data: 3,
+  goal: 90
 }, {
   title: 'Distance',
   data: 98,
-  metric: 'miles'
+  metric: 'miles',
+  goal: 3078
 }, {
   title: 'Elevation',
   data: 3987,

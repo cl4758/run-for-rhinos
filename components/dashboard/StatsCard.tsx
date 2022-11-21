@@ -47,13 +47,16 @@ interface StatsCardProps {
   title: string,
   data: number,
   metric?: string;
+  goal?: number;
 }
 
 function StatsCard(props: StatsCardProps) {
   return (
     <StatsCardWrapper>
       <CardHeader><h4>{props.title}</h4></CardHeader>
-      <CardContent>{props.data} {props.metric}</CardContent>
+      <CardContent>{props.data.toLocaleString()} {props.metric}
+        {/* {props.goal ? <sub>/{props.goal} {props.metric}</sub> : <></>} */}
+      </CardContent>
     </StatsCardWrapper>
   )
 }
