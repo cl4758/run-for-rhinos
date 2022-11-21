@@ -3,7 +3,7 @@ import styled, { keyframes, css } from 'styled-components';
 import { useRouter } from 'next/router';
 import { IconMenu2 } from '@tabler/icons';
 import { useState } from 'react';
-import overlay from '../public/black.jpg';
+import overlay from '../../public/black.jpg';
 import Image from 'next/image';
 
 
