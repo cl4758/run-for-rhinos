@@ -79,6 +79,7 @@ export default function Home() {
           alt="Rhino in front of a rainbow"
           src={rhino}
           placeholder="blur"
+          priority={true}
           quality={100}
           fill
           sizes="100vw"
@@ -90,6 +91,7 @@ export default function Home() {
           alt="overlay"
           src={overlay}
           placeholder="blur"
+          priority={true}
           quality={100}
           fill
           sizes="100vw"
