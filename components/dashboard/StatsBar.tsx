@@ -11,7 +11,7 @@ const StatsBarWrapper = styled.div`
     flex-direction: column;
     height: 100%;
     justify-content: space-evenly;
-    margin-top: 0%;
+    margin-top: 0;
   }
 `;
 
