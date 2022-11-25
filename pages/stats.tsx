@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
 import Activity from '../lib/models/activity';
-import { connectToDatabase } from '../lib/services/database.service';
 
 const Wrapper = styled.div`
   display: flex;

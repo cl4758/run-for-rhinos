@@ -39,7 +39,7 @@ display: flex;
 flex-direction: column;
   height: 92%;
   width: 92%;
-  padding-top: 2vh;
+  padding-top: 3vh;
 
   @media (max-width: 768px) {
     height: 90%;
@@ -52,9 +52,9 @@ const CardHeader = styled.div`
   display: flex;
   text-align: center;
   /* border-bottom: 1px; */
-  border-width: 0px 0 2px 0;
+  /* border-width: 0px 0 2px 0;
   border-color: #404040;
-  border-style: solid;
+  border-style: solid; */
   justify-content: center;
   > h4 {
     margin: 0 auto 0 auto;
