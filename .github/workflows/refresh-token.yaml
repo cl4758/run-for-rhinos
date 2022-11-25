@@ -1,7 +1,7 @@
 name: Refresh token
 on:
   schedule:
-    - cron: '* */5 * * *'
+    - cron: '0 */5 * * *'
 jobs:
   cron:
     runs-on: ubuntu-latest
