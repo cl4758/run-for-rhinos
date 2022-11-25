@@ -77,6 +77,7 @@ const Title = styled.h2`
   }
   z-index: 1;
   margin-left: 1vw;
+  font-family: 'Rubik Dirt', sans-serif;
 `;
 
 const Button = styled.button`
