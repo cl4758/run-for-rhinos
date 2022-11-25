@@ -70,10 +70,13 @@ function Dashboard({ totals, graph }: { totals: any, graph: any }) {
 }
 
 export async function getServerSideProps() {
-  const sumRes = await fetch('http://localhost:3000/api/database/activities/sum');
+  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev ? 'http://localhost:3000' : 'https://run-for-rhinos.vercel.app';
+
+  const sumRes = await fetch(`${server}/api/database/activities/sum`);
   const sumData = await sumRes.json();
 
-  const graphRes = await fetch('http://localhost:3000/api/database/activities/graph');
+  const graphRes = await fetch(`${server}/api/database/activities/graph`);
   const graphData = await graphRes.json();
 
   return {
