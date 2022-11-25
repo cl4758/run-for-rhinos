@@ -1,10 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { ObjectId } from "mongodb";
-import { collections } from "../../../../lib/services/database.service";
 import Activity from "../../../../lib/models/activity";
 import clientPromise from '../../../../lib/utils/mongodb';
-import { IconBorderAll } from '@tabler/icons';
 
 type Data = {
   name: string
