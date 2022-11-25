@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StatsCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 16%;
+  width: 18%;
   border-width: 1px;
   border-color: white;
   /* border-style: solid; */
@@ -33,6 +33,7 @@ const CardHeader = styled.div`
     margin: 0 auto 0 auto;
     justify-self: center;
     font-size: 1.3em;
+    font-weight: 500;
   }
 `;
 

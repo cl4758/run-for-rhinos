@@ -18,9 +18,9 @@ const ChartWrapper = styled.div`
   align-content: center; */
   align-items: center;
   width: 75%;
-  height: 75%;
+  height: 77%;
   flex-direction: column;
-  margin-top: 5vh;
+  margin-top: 3vh;
   padding-top: 1vh;
   margin-left: auto;
   margin-right: auto;
@@ -60,6 +60,7 @@ const CardHeader = styled.div`
     margin: 0 auto 0 auto;
     justify-self: center;
     font-size: 1.3em;
+    font-weight: 500;
   }
 `;
 
