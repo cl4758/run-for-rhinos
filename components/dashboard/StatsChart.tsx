@@ -99,28 +99,38 @@ const options = {
 
 const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Distance',
-      data: [35, 32, 34, 33, 31, 32, 32, 33, 29],
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      yAxisID: 'y',
-    },
-    {
-      label: 'Elevation',
-      // data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      data: [1234, 986, 601, 1592, 1103, 1845, 1655],
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      yAxisID: 'y1',
-    },
-  ],
-};
 
-function StatsChart() {
+
+interface StatsChartProps {
+  distances: [],
+  elevations: []
+
+}
+
+function StatsChart({ distances, elevations }: StatsChartProps) {
+  console.log(distances);
+  console.log(elevations);
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Distance',
+        data: distances,
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        yAxisID: 'y',
+      },
+      {
+        label: 'Elevation',
+        // data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        data: elevations,
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        yAxisID: 'y1',
+      },
+    ],
+  };
+
   return (
     <ChartWrapper>
       <ChartCanvas>

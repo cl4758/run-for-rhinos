@@ -22,8 +22,6 @@ export default async function handler(
   switch (method) {
     case 'GET':
       try {
-        // const activities = (await collections.activities?.find({}).toArray()) as unknown as Activity[];
-
         const activities = await db.collection("activities").find({}).toArray() as unknown as Activity[];
 
         res.status(200).send(activities);
@@ -33,13 +31,10 @@ export default async function handler(
       break;
     case 'POST':
       try {
-        // const newActivity = req.body as Activity;
-        // const result = await collections.activities?.insertOne(newActivity);
-
-        // result
-        //   ? res.status(201).send(`Successfully created a new game with id ${result.insertedId}`)
-        //   : res.status(500).send("Failed to create a new game.");
         const bodyObject = JSON.parse(req.body);
+
+        console.log(bodyObject);
+
         const result = await db.collection("activities").insertOne(bodyObject);
         result
           ? res.status(201).send(`Successfully created a new activity with id ${result.insertedId}`)
