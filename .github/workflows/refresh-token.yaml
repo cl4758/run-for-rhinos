@@ -9,4 +9,4 @@ jobs:
       - name: Refresh access token
         run: |
           curl --request POST \
-          --url 'https://run-for-rhinos.vercel.app/api/refresh'
+          --url 'https://localhost:3000/api/refresh'
