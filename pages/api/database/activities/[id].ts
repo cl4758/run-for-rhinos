@@ -11,39 +11,42 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Activity | String>
+  res: NextApiResponse<Activity | String | any>
 ) {
   const { method } = req;
   const { id } = req.query;
 
   const client = await clientPromise;
   const db = client.db(process.env.DB_NAME);
+  await db.collection("activities").createIndex({ activity_id: 1 }, { unique: true });
 
   switch (method) {
     case 'GET':
-      // try {
-      //   const query = { _id: new ObjectId(parseInt(id as string)) };
-      //   const activity = (await collections.activities?.find(query)) as unknown as Activity;
-
-      //   res.status(200).send(activity);
-      // } catch (error: any) {
-      // }
 
       try {
-        const query = { _id: new ObjectId(parseInt(id as string)) };
-        const activity = await db.collection("activities").find(query) as unknown as Activity;
+        console.log(id);
+        const query = { activity_id: parseInt(id as string) };
+        console.log(query);
+        const activity = await db.collection("activities").find(query).toArray();
+
+        console.log("get activity", activity);
 
         res.status(200).send(activity);
       } catch (error: any) {
         res.status(404).send(`Unable to find matching document with id: ${id}`);
       }
       break;
+
     case 'PUT':
       try {
-        const updatedActivity: Activity = req.body as Activity;
-        const query = { _id: new ObjectId(parseInt(id as string)) };
+        const bodyObject = JSON.parse(req.body);
+        const query = { activity_id: parseInt(id as string) };
 
-        const result = await collections.activities?.updateOne(query, { $set: updatedActivity });
+
+        console.log(bodyObject);
+
+        const result = await db.collection("activities").updateOne(query, { $set: bodyObject });
+        console.log(result);
 
         result
           ? res.status(200).send(`Successfully updated activity with id ${id}`)
@@ -52,10 +55,11 @@ export default async function handler(
         console.error(error.message);
         res.status(400).send(error.message);
       }
+      break;
     case 'DELETE':
       try {
-        const query = { _id: new ObjectId(parseInt(id as string)) };
-        const result = await collections.activities?.deleteOne(query);
+        const query = { activity_id: parseInt(id as string) };
+        const result = await db.collection("activities").deleteOne(query);
 
         if (result && result.deletedCount) {
           res.status(202).send(`Successfully removed activity with id ${id}`);
@@ -68,6 +72,7 @@ export default async function handler(
         console.error(error.message);
         res.status(400).send(error.message);
       }
+      break;
 
   }
 }
