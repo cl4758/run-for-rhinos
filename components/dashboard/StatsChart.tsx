@@ -60,7 +60,6 @@ const CardHeader = styled.div`
     margin: 0 auto 0 auto;
     justify-self: center;
     font-size: 1.3em;
-    font-weight: 500;
   }
 `;
 
