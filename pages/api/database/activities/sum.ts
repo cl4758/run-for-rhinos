@@ -32,6 +32,7 @@ export default async function handler(
           total_distance: { $sum: "$distance" },
           total_elevation: { $sum: "$total_elevation_gain" },
           total_steps: { $sum: { $multiply: ["$average_cadence", 2, "$moving_time", 1 / 60] } },
+          total_calories: { $sum: "$calories" },
         }
       }]).toArray() as unknown as Totals[];
     console.log(activities[0]);

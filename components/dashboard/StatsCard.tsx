@@ -4,15 +4,16 @@ import styled from 'styled-components';
 const StatsCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 16%;
   border-width: 1px;
   border-color: white;
-  border-style: solid;
+  /* border-style: solid; */
   height: 13vh;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: #282828;
 
   @media (max-width: 768px) {
-    width: 50%;
+    width: 60%;
     align-self: center;
   }
 `;
@@ -22,7 +23,7 @@ const CardHeader = styled.div`
   text-align: center;
   /* border-bottom: 1px; */
   border-width: 0px 0 2px 0;
-  border-color: white;
+  border-color: #404040;
   border-style: solid;
   height: 40%;
   justify-content: center;

@@ -14,21 +14,52 @@ import { Line } from 'react-chartjs-2';
 
 const ChartWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-  height: 80%;
+  /* justify-content: center;
+  align-content: center; */
+  align-items: center;
+  width: 75%;
+  height: 75%;
+  flex-direction: column;
+  margin-top: 5vh;
+  padding-top: 1vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #282828;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    height: 50%;
+    width: 100%;
+    margin-top: 4vh;
+  }
 `;
 
 const ChartCanvas = styled.div`
-  height: 80%;
-  width: 70%;
-  margin-top: 4vh;
+display: flex;
+flex-direction: column;
+  height: 92%;
+  width: 92%;
+  padding-top: 2vh;
 
   @media (max-width: 768px) {
-    height: 40%;
+    height: 90%;
     width: 100%;
-    margin-top: 4vh;
+    padding-top: 2vh;
+  }
+`;
+
+const CardHeader = styled.div`
+  display: flex;
+  text-align: center;
+  /* border-bottom: 1px; */
+  border-width: 0px 0 2px 0;
+  border-color: #404040;
+  border-style: solid;
+  justify-content: center;
+  > h4 {
+    margin: 0 auto 0 auto;
+    justify-self: center;
+    font-size: 1.3em;
   }
 `;
 
@@ -60,7 +91,7 @@ const options = {
       display: false
     },
     title: {
-      display: true,
+      display: false,
       text: 'Distance vs. Elevation',
     },
   },
@@ -133,6 +164,9 @@ function StatsChart({ distances, elevations }: StatsChartProps) {
 
   return (
     <ChartWrapper>
+      <CardHeader>
+        <h4>Distance vs. Elevation</h4>
+      </CardHeader>
       <ChartCanvas>
         <Line options={options} data={data} />
       </ChartCanvas>

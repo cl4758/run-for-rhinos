@@ -34,7 +34,7 @@ export default async function handler(
         const bodyObject = JSON.parse(req.body);
 
         console.log(bodyObject);
-
+        await db.collection("activities").createIndex({ activity_id: 1 }, { unique: true });
         const result = await db.collection("activities").insertOne(bodyObject);
         result
           ? res.status(201).send(`Successfully created a new activity with id ${result.insertedId}`)

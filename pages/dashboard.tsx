@@ -54,6 +54,9 @@ function Dashboard({ totals, graph }: { totals: any, graph: any }) {
   }, {
     title: 'Steps',
     data: totals.steps
+  }, {
+    title: 'Calories',
+    data: totals.calories
   }];
 
 
@@ -79,7 +82,8 @@ export async function getServerSideProps() {
         day: sumData.days,
         distance: sumData.total_distance / 1000 / 1.6,
         elevation: sumData.total_elevation * 3.28,
-        steps: Math.round(sumData.total_steps)
+        steps: Math.round(sumData.total_steps),
+        calories: sumData.total_calories
       },
       graph: {
         distances: graphData.distances.map((d: number) => d / 1000 / 1.6),

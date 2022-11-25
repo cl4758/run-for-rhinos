@@ -24,7 +24,7 @@ const LayoutWrapper = styled.div`
 function Layout({ children }: { children: any }) {
   const routes = [{ link: '/', label: 'Home' },
   { link: '/map', label: 'Map' },
-  { link: '/stats', label: 'Stats', },
+  { link: '/dashboard', label: 'Stats', },
   { link: '/about', label: 'About' }];
 
   return (
