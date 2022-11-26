@@ -24,8 +24,15 @@ export default async function handler(
   try {
 
     const activities = await db.collection("activities").aggregate([
-      { $group: { _id: null, distances: { $push: '$distance' }, elevations: { $push: '$total_elevation_gain' } } },
-      { $project: { _id: 0, distances: 1, elevations: 1 } }
+      {
+        $group: {
+          _id: null,
+          distances: { $push: '$distance' },
+          elevations: { $push: '$total_elevation_gain' },
+          dates: { $push: '$date' }
+        }
+      },
+      { $project: { _id: 0, distances: 1, elevations: 1, dates: 1 } }
     ]).toArray();
     console.log(activities);
 

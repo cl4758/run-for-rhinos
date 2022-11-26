@@ -9,7 +9,9 @@ import {
   Title,
   Tooltip,
   Legend,
+  TimeScale
 } from 'chart.js';
+import 'chartjs-adapter-luxon';
 import { Line } from 'react-chartjs-2';
 
 const ChartWrapper = styled.div`
@@ -70,7 +72,8 @@ Chart.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  TimeScale
 );
 
 Chart.defaults.color = 'white';
@@ -101,7 +104,16 @@ const options = {
         display: true,
         text: 'days'
       },
-      type: 'linear' as const,
+      type: 'time' as const,
+      time: {
+        unit: 'day',
+        tooltipFormat: 'MMM DD'
+      } as const,
+      adapters: {
+        date: {
+          zone: 'America/New_York',
+        },
+      },
       display: true
     },
     y: {
@@ -128,19 +140,22 @@ const options = {
   },
 };
 
-const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 
 
 interface StatsChartProps {
   distances: [],
-  elevations: []
+  elevations: [],
+  dates: []
 
 }
 
-function StatsChart({ distances, elevations }: StatsChartProps) {
+function StatsChart({ distances, elevations, dates }: StatsChartProps) {
   console.log(distances);
   console.log(elevations);
+  console.log(dates);
+
+  const labels = dates;
+
   const data = {
     labels,
     datasets: [

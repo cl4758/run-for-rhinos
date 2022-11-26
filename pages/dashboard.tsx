@@ -64,7 +64,7 @@ function Dashboard({ totals, graph }: { totals: any, graph: any }) {
   return (
     <DashboardWrapper>
       <StatsBar cards={statistics} />
-      <StatsChart distances={graph.distances} elevations={graph.elevations} />
+      <StatsChart distances={graph.distances} elevations={graph.elevations} dates={graph.dates} />
     </DashboardWrapper>
   )
 }
@@ -90,7 +90,8 @@ export async function getServerSideProps() {
       },
       graph: {
         distances: graphData.distances.map((d: number) => d / 1000 / 1.6),
-        elevations: graphData.elevations.map((e: number) => e * 3.28)
+        elevations: graphData.elevations.map((e: number) => e * 3.28),
+        dates: graphData.dates.map((date: string) => new Date(new Date(date).toDateString()).toISOString())
       }
 
     }
