@@ -14,7 +14,7 @@ const Text = styled.p`
   display: flex;
   justify-self: center;
   align-items: center;
-  font-size: 0.8em;
+  font-size: 0.7em;
   white-space: pre-wrap;
   > a {
     color: inherit;

@@ -29,7 +29,7 @@ const NavLink = styled(Link)`
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 1.1em;
+  font-size: 1em;
   @media (min-width: 768px) {
     &::before {
     transition: 200ms;
@@ -85,7 +85,7 @@ const Button = styled.button`
   border-radius: 3px;
   border: 2px solid #9E9EFF;
   color: inherit;
-  font-size: inherit;
+  font-size: 1em;
   width: 25%;
   height: 50%;
   align-self: center;

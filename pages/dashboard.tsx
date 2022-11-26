@@ -83,7 +83,7 @@ export async function getServerSideProps() {
     props: {
       totals: {
         day: sumData.days,
-        distance: sumData.total_distance / 1000 / 1.6,
+        distance: (sumData.total_distance / 1000 / 1.6).toFixed(2),
         elevation: sumData.total_elevation * 3.28,
         steps: Math.round(sumData.total_steps),
         calories: sumData.total_calories
