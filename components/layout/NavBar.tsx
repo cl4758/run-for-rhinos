@@ -72,7 +72,7 @@ const Title = styled.h2`
   align-items: center;
   font-weight: 500;
   @media (max-width: 768px) {
-    width: 50%;
+    width: 100%;
     margin-left: 4vw;
   }
   z-index: 1;

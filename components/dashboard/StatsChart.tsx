@@ -97,6 +97,13 @@ const options = {
       display: false,
       text: 'Distance vs. Elevation',
     },
+    tooltip: {
+      callbacks: {
+        label: (data: any) => {
+          return data.dataset.label == 'Elevation' ? `${data.formattedValue} ft` : `${data.formattedValue} mi`;
+        }
+      }
+    }
   },
   scales: {
     x: {
@@ -107,7 +114,7 @@ const options = {
       type: 'time' as const,
       time: {
         unit: 'day',
-        tooltipFormat: 'MMM DD'
+        tooltipFormat: 'DD'
       } as const,
       adapters: {
         date: {

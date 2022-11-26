@@ -89,8 +89,8 @@ export async function getServerSideProps() {
         calories: sumData.total_calories
       },
       graph: {
-        distances: graphData.distances.map((d: number) => d / 1000 / 1.6),
-        elevations: graphData.elevations.map((e: number) => e * 3.28),
+        distances: graphData.distances.map((d: number) => (d / 1000 / 1.6).toFixed(2)),
+        elevations: graphData.elevations.map((e: number) => (e * 3.28).toFixed(2)),
         dates: graphData.dates.map((date: string) => new Date(new Date(date).toDateString()).toISOString())
       }
 
