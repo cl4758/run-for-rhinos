@@ -9,4 +9,4 @@ jobs:
       - name: Refresh access token
         run: |
           curl --request POST \
-          --url 'https://localhost:3000/api/refresh'
+          --url 'localhost:3000/api/refresh'
