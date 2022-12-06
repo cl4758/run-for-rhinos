@@ -49,7 +49,8 @@ const CardContent = styled.div`
   > h4 {
     margin: 0 auto 0 auto;
     justify-self: center;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    font-weight: 800;
   }
 `;
 

@@ -17,6 +17,15 @@ const Wrapper = styled.div`
   } */
 `;
 
+const LocationWrapper = styled.div`
+margin-top: 1vh;
+/* margin-left: 1vw; */
+margin-left: 3vw;
+& .map-container {
+  height: 100%;
+  width: 100%;
+}`;
+
 const AnotherWrapper = styled.div`
 margin-top: 2vh;
 margin-left: 0.5vw;
@@ -29,6 +38,7 @@ margin-left: 0.5vw;
     height: 100%;
   }
 `;
+
 
 const MapWrapper = styled.div`
 margin-top: 1vh;
@@ -60,9 +70,6 @@ const stats = [{
   title: 'Day',
   data: 3,
   goal: 90
-}, {
-  title: 'Location',
-  data: 'somewhere'
 }, {
   title: 'Distance',
   data: 98,
@@ -152,7 +159,7 @@ function Map() {
   return (
     <Wrapper>
       {/* <StatsBar cards={stats} /> */}
-      <div></div>
+      <LocationWrapper>Location: somewhere</LocationWrapper>
       <AnotherWrapper>
         <StatsBar cards={stats} />
         <MapWrapper>

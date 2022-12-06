@@ -5,7 +5,7 @@ import StatsCard from './StatsCard';
 const StatsBarWrapper = styled.div`
 margin-top: 1vh;
   display: grid;
-  grid-template-rows: 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr;
+  grid-template-rows: 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr;
   /* grid-template-columns: 0.5fr 0.8fr 0.6fr 0.7fr 0.7fr 0.7fr; */
   /* margin-top: 3vh; */
 
