@@ -19,7 +19,11 @@ export default async function handler(
   await axios
     .post(url, {}, { params })
     .then(({ data }) => {
+      const x = process.env.ACCESS_TOKEN;
       process.env.ACCESS_TOKEN = data.access_token;
+      if (x == process.env.ACCESS_TOKEN) {
+        res.status(418).send('token not successfully set');
+      }
       res.status(200).send('successfully refreshed access token');
     })
     .catch(({ err }) => {

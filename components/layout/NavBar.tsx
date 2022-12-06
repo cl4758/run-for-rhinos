@@ -99,6 +99,9 @@ const Button = styled.button`
     display: none;
   }
   font-family: inherit;
+  &:hover {
+    background-color: #282828;
+  }
 `;
 
 const MenuBurger = styled.div`

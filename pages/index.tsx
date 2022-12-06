@@ -29,9 +29,10 @@ const DescriptionWrapper = styled.div`
 `;
 
 const ScrollArea = styled.div`
-  height: 90vh;
+  height: ${props => props.style ? props.style.height : '89vh'};
   width: 100%;
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
+  background-color: ${props => props.style?.background};
 `;
 
 const Wrapper = styled.div`
@@ -49,7 +50,20 @@ const Description = styled.div`
   font-size: 2.85em;
   width: 70%;
   text-align: center;
+`;
 
+const Text = styled.div`
+  @media (min-width: 768px) {
+    font-size: 1.3em;
+    width: 100%;
+  }
+  padding-top: 30vh;
+  color: inherit;
+  /* align-items: center;
+  align-self: center; */
+  font-size: 1.3em;
+  width: 70%;
+  text-align: center;
 `;
 
 export default function Home() {
@@ -110,7 +124,20 @@ export default function Home() {
         </DescriptionWrapper>
       </ScrollArea>
 
-      <ScrollArea>well hello</ScrollArea>
+      <ScrollArea style={{ background: "black", height: "70vh" }}>
+        <DescriptionWrapper>
+          <Text>
+            On March 1st, ( . ) ( . )
+          </Text>
+        </DescriptionWrapper>
+      </ScrollArea>
+      <ScrollArea style={{ background: "white", height: "100vh" }}>
+        <DescriptionWrapper>
+          <Text>
+            On March 1st,
+          </Text>
+        </DescriptionWrapper>
+      </ScrollArea>
     </Wrapper>
   )
 }

@@ -3,12 +3,17 @@ import styled from 'styled-components';
 import StatsCard from './StatsCard';
 
 const StatsBarWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3vh;
+margin-top: 1vh;
+  display: grid;
+  grid-template-rows: 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr;
+  /* grid-template-columns: 0.5fr 0.8fr 0.6fr 0.7fr 0.7fr 0.7fr; */
+  /* margin-top: 3vh; */
+
+  /* justify-content: space-between; */
+  /* width: 75%; */
+  /* margin-left: auto;
+  margin-right: auto; */
+
   @media (max-width: 768px) {
     flex-direction: column;
     height: 85%;
@@ -21,7 +26,7 @@ const StatsBarWrapper = styled.div`
 interface StatsBarProps {
   cards: {
     title: string,
-    data: number,
+    data: number | string,
     metric?: string,
     goal?: number
   }[]

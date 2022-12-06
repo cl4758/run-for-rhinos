@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: grid;
+  margin-top: 5vh;
   grid-template-columns: 1fr 1fr;
   width: 80%;
 `;

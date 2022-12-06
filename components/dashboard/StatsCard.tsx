@@ -4,12 +4,14 @@ import styled from 'styled-components';
 const StatsCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 18%;
+  justify-self: center;
+  /* width: 18%; */
+  width: 70%;
   border-width: 1px;
   border-color: white;
   /* border-style: solid; */
-  height: 13vh;
-  border-radius: 10px;
+  height: 12vh;
+  /* border-radius: 8px; */
   background-color: #282828;
 
   @media (max-width: 768px) {
@@ -22,13 +24,14 @@ const CardHeader = styled.div`
   display: flex;
   text-align: center;
   /* border-bottom: 1px; */
-  border-width: 0px 0 2px 0;
-  border-color: #404040;
+  border-width: 0px 0 1px 0;
+  border-color: black;
   border-style: solid;
-  height: 40%;
+  height: 50%;
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  font-size: 0.9em;
   > h4 {
     margin: 0 auto 0 auto;
     justify-self: center;
@@ -43,11 +46,16 @@ const CardContent = styled.div`
   height: 60%;
   justify-content: center;
   font-size: 0.9em;
+  > h4 {
+    margin: 0 auto 0 auto;
+    justify-self: center;
+    font-size: 1.1em;
+  }
 `;
 
 interface StatsCardProps {
   title: string,
-  data: number,
+  data: number | string,
   metric?: string;
   goal?: number;
 }
@@ -55,8 +63,8 @@ interface StatsCardProps {
 function StatsCard(props: StatsCardProps) {
   return (
     <StatsCardWrapper>
-      <CardHeader><h4>{props.title}</h4></CardHeader>
-      <CardContent>{props.data.toLocaleString()} {props.metric}
+      <CardHeader>{props.title}</CardHeader>
+      <CardContent><h4>{props.data.toLocaleString()} {props.metric}</h4>
         {/* {props.goal ? <sub>/{props.goal} {props.metric}</sub> : <></>} */}
       </CardContent>
     </StatsCardWrapper>

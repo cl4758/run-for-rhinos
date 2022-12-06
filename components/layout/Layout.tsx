@@ -7,12 +7,13 @@ const LayoutContent = styled.div`
   display: flex;
   margin-left: 5vw;
   margin-right: 5vw;
-  margin: 11vh 5vw 5vh 5vw;
+  /* margin: 11vh 5vw 5vh 5vw; */
+  margin: 11vh 0 5vh 0;
   justify-content: center;
-  /* height: 100%; */
-  @media (max-width: 768px) {
+  height: 100%;
+  /* @media (max-width: 768px) {
     height: 100%;
-  }
+  } */
 `;
 
 const LayoutWrapper = styled.div`

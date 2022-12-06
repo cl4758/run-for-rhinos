@@ -6,13 +6,14 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
   TimeScale
 } from 'chart.js';
 import 'chartjs-adapter-luxon';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
 const ChartWrapper = styled.div`
   display: flex;
@@ -70,6 +71,7 @@ Chart.register(
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
@@ -190,7 +192,8 @@ function StatsChart({ distances, elevations, dates }: StatsChartProps) {
         <h4>Distance vs. Elevation</h4>
       </CardHeader>
       <ChartCanvas>
-        <Line options={options} data={data} />
+        {/* <Line options={options} data={data} /> */}
+        <Bar options={options} data={data} />
       </ChartCanvas>
     </ChartWrapper>
   );

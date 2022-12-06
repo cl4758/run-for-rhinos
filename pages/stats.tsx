@@ -40,7 +40,7 @@ function Stats() {
   };
 
   async function getActivity() {
-    const response = await fetch(`/api/strava/activities/${8152948465}`);
+    const response = await fetch(`/api/strava/activities/${8162639321}`);
     const activity = await response.json();
     // await fetch(`api/strava/activities/${8139852397}`).then((activity) => {
 

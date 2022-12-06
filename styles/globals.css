@@ -54,3 +54,7 @@ body {
 .wrapper {
   display: flex;
 }
+
+.mapboxgl-control-container {
+  display: none !important;
+}
