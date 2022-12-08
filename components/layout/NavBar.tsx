@@ -151,7 +151,7 @@ const NavWrapper = styled.div`
 
 const HeaderOverlay = styled(Image)`
 @media (min-width: 768px) {
-  height: 14vh;
+  height: 13vh;
 }
   position: fixed;
   height: 10vh;

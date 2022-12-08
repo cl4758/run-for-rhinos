@@ -1,0 +1,14 @@
+[
+  {
+    "city": "New York",
+    "state": "New York",
+    "latitude": 40.6643,
+    "longitude": -73.9385
+  },
+  {
+    "city": "Los Angeles",
+    "state": "California",
+    "latitude": 34.0194,
+    "longitude": -118.4108
+  }
+]

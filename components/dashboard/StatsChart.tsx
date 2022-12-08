@@ -20,12 +20,11 @@ const ChartWrapper = styled.div`
   /* justify-content: center;
   align-content: center; */
   align-items: center;
-  width: 75%;
+  width: 95%;
   height: 77%;
   flex-direction: column;
-  margin-top: 3vh;
   padding-top: 1vh;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
   background-color: #282828;
   border-radius: 10px;

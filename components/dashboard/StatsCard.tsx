@@ -10,8 +10,8 @@ const StatsCardWrapper = styled.div`
   border-width: 1px;
   border-color: white;
   /* border-style: solid; */
-  height: 12vh;
-  /* border-radius: 8px; */
+  height: 13vh;
+  border-radius: 8px;
   background-color: #282828;
 
   @media (max-width: 768px) {
@@ -22,16 +22,18 @@ const StatsCardWrapper = styled.div`
 
 const CardHeader = styled.div`
   display: flex;
+  /* padding-left: 8%; */
   text-align: center;
   /* border-bottom: 1px; */
   border-width: 0px 0 1px 0;
   border-color: black;
   border-style: solid;
-  height: 50%;
+  height: 40%;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   font-size: 0.9em;
+  
   > h4 {
     margin: 0 auto 0 auto;
     justify-self: center;
@@ -40,6 +42,7 @@ const CardHeader = styled.div`
 `;
 
 const CardContent = styled.div`
+/* background-color: #222222; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -49,7 +52,7 @@ const CardContent = styled.div`
   > h4 {
     margin: 0 auto 0 auto;
     justify-self: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: 800;
   }
 `;

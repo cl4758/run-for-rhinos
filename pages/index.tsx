@@ -36,7 +36,8 @@ const ScrollArea = styled.div`
 `;
 
 const Wrapper = styled.div`
-width: 100%`;
+  width: 100%
+`;
 
 const Description = styled.div`
   @media (min-width: 768px) {

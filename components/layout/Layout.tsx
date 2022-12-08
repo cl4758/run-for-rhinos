@@ -5,15 +5,16 @@ import NavBar from './NavBar';
 
 const LayoutContent = styled.div`
   display: flex;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  /* margin-left: 5vw;
+  margin-right: 5vw; */
   /* margin: 11vh 5vw 5vh 5vw; */
-  margin: 11vh 0 5vh 0;
+  padding: 13vh 0 5vh 0;
   justify-content: center;
   height: 100%;
   /* @media (max-width: 768px) {
     height: 100%;
   } */
+  box-sizing: border-box;
 `;
 
 const LayoutWrapper = styled.div`
@@ -24,7 +25,7 @@ const LayoutWrapper = styled.div`
 
 function Layout({ children }: { children: any }) {
   const routes = [{ link: '/', label: 'Home' },
-  { link: '/map', label: 'Map' },
+  { link: '/tracking', label: 'Tracking' },
   { link: '/dashboard', label: 'Stats', },
   { link: '/about', label: 'About' }];
 
