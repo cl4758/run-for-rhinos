@@ -26,6 +26,7 @@ const DescriptionWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 100%;
 `;
 
 const ScrollArea = styled.div`
@@ -44,7 +45,7 @@ const Description = styled.div`
     font-size: 3em;
     width: 100%;
   }
-  padding-top: 30vh;
+  padding-top: 15%;
   color: inherit;
   /* align-items: center;
   align-self: center; */
@@ -56,14 +57,14 @@ const Description = styled.div`
 const Text = styled.div`
   @media (min-width: 768px) {
     font-size: 1.3em;
-    width: 100%;
+    width: 80%;
   }
-  padding-top: 30vh;
-  color: inherit;
+  margin-top: 15%;
+  color: ${props => props.style ? props.style.color : 'inherit'};;
   /* align-items: center;
   align-self: center; */
   font-size: 1.3em;
-  width: 70%;
+  width: 80%;
   text-align: center;
 `;
 
@@ -128,14 +129,17 @@ export default function Home() {
       <ScrollArea style={{ background: "black", height: "70vh" }}>
         <DescriptionWrapper>
           <Text>
-            On March 1st, ( . ) ( . )
+            On March 1st, Tim sets out from LA to NYC, covering approximately 3,078 miles over 90 days.
+            <br></br>
+            <br></br>
+            To prepare, on December 17th, Tim will run from NYC to BOS, a journey of 242 miles over 7 days.
           </Text>
         </DescriptionWrapper>
       </ScrollArea>
-      <ScrollArea style={{ background: "white", height: "100vh" }}>
+      <ScrollArea style={{ background: "white", height: "50vh" }}>
         <DescriptionWrapper>
-          <Text>
-            On March 1st,
+          <Text style={{ color: "black" }}>
+            If you&apos;re here, thank you for following along! You can track Tim&apos;s progress on the Tracking page or read more on the About page. Please donate!
           </Text>
         </DescriptionWrapper>
       </ScrollArea>
