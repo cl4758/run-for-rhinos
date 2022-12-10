@@ -34,7 +34,6 @@ function Stats() {
     };
 
     postData().then((data) => {
-      console.log(data);
       setYearlyDistance(data.ytd_run_totals.distance);
     });
   };

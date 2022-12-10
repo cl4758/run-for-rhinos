@@ -147,6 +147,7 @@ const NavWrapper = styled.div`
   margin: 0;
   position: fixed;
   width: 94vw;
+  z-index: 1;
 `;
 
 const HeaderOverlay = styled(Image)`
@@ -158,6 +159,7 @@ const HeaderOverlay = styled(Image)`
   width: 100vw;
   overflow: hidden;
   opacity: 15%;
+  z-index: 1;
 `;
 
 const DropdownMenu = styled.div`

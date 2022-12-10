@@ -158,9 +158,6 @@ interface StatsChartProps {
 }
 
 function StatsChart({ distances, elevations, dates }: StatsChartProps) {
-  console.log(distances);
-  console.log(elevations);
-  console.log(dates);
 
   const labels = dates;
 

@@ -164,8 +164,6 @@ function Tracking({ totals, graph }: { totals: any, graph: any }) {
 
   //satellite-streets-v12
 
-  console.log(Markers);
-
   const pins = useMemo(
     () =>
       Markers.map((city, index) => (

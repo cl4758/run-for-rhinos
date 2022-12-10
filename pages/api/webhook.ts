@@ -47,6 +47,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
         name,
         start_date: date,
         start_latlng: [start_latitude, start_longitude],
+        end_latlng: [end_latitude, end_longitude],
         map: { polyline },
         timezone,
         utc_offset,
@@ -103,6 +104,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
         name,
         start_date: date,
         start_latlng: [start_latitude, start_longitude],
+        end_latlng: [end_latitude, end_longitude],
         map: { polyline },
         timezone,
         utc_offset,
@@ -137,15 +139,6 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
       const response = await updateActivityToDatabase(run);
 
       console.log(response);
-
-      // getActivityById(object_id).then((activity) => updateStats(activity));
-      // getActivityById(object_id).then()
-
-      // console.log("activity from webhook: ", activity);
-
-      // const run = await updateStats(activity);
-
-      // console.log("run: ", run);
 
       return res
         .status(201)
