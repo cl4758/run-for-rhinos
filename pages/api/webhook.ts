@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { NextApiRequestQuery } from 'next/dist/server/api-utils';
-import { getActivityById, pushActivityToDatabase, updateActivityToDatabase } from '../../lib/services';
+import { getActivityById, pushActivityToDatabase, refreshToken, updateActivityToDatabase } from '../../lib/services';
 
 interface SubscriptionEvent {
   object_type: 'activity' | 'athlete'
@@ -37,6 +37,8 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     if (aspect_type === 'create' && object_type === 'activity') {
       console.log("create");
 
+      const refresh = await refreshToken();
+
       const activity = await getActivityById(object_id);
 
       const {
@@ -68,6 +70,8 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
         date,
         start_latitude,
         start_longitude,
+        end_latitude,
+        end_longitude,
         polyline,
         timezone,
         utc_offset,
@@ -125,6 +129,8 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
         date,
         start_latitude,
         start_longitude,
+        end_latitude,
+        end_longitude,
         polyline,
         timezone,
         utc_offset,

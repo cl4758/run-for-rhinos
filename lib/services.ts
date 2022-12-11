@@ -4,6 +4,13 @@ import Activity from './models/activity';
 const dev = process.env.NODE_ENV !== 'production';
 const server = dev ? 'http://localhost:3000' : 'https://run-for-rhinos.vercel.app';
 
+export async function refreshToken() {
+  console.log('refreshing access token');
+  const refresh = await fetch(`${server}/api/refresh`);
+  const result = refresh.json();
+  return result;
+}
+
 export async function getActivities() {
   console.log('getting activities');
   const activities = await fetch(`/api/strava/activities/`);
@@ -28,4 +35,13 @@ export async function updateActivityToDatabase(activity: any) {
   const response = await fetch(`${server}/api/database/activities/${activity_id}`, { method: "PUT", body: JSON.stringify(activity) });
   const result = await response.text();
   return result;
+}
+
+export async function getLocation(location: any) {
+  const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
+
+  const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location.end_longitude},${location.end_latitude}.json?types=place,region&access_token=${mapbox_token}`);
+  const result = await response.json();
+  const place = result.features[0].place_name;
+  return place;
 }

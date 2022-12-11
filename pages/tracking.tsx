@@ -7,6 +7,7 @@ import Map, { FullscreenControl, GeolocateControl, Layer, LayerProps, Marker, Na
 import Markers from '../lib/markers.json';
 import Pin from '../components/Pin';
 import { geoJSON } from 'leaflet';
+import { getLocation } from '../lib/services';
 
 
 
@@ -22,7 +23,7 @@ const StatsWrapper = styled.div`
 const LocationWrapper = styled.div`
   margin-top: 1vh;
 /* margin-left: 1vw; */
-  padding-left: 7vw;
+  padding-left: 5vw;
   box-sizing: border-box;
 
 `;
@@ -90,8 +91,6 @@ const ScrollArea = styled.div`
   }
 `;
 
-
-
 interface MarkerProps {
   city: string,
   state: string,
@@ -100,7 +99,8 @@ interface MarkerProps {
 }
 
 
-function Tracking({ totals, graph }: { totals: any, graph: any }) {
+
+function Tracking({ totals, graph, location }: { totals: any, graph: any, location: string }) {
   // mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
   mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnF4ZWN3MDF1bTN2cXczM2I4bWg4diJ9.dz7Y_IKDnuXkHNOHG-20Ug";
   // const mapContainer = useRef(null);
@@ -153,8 +153,6 @@ function Tracking({ totals, graph }: { totals: any, graph: any }) {
       data: Math.round(totals.calories / totals.day)
     }];
 
-
-
   //satellite-streets-v12
 
   const pins = useMemo(
@@ -177,14 +175,12 @@ function Tracking({ totals, graph }: { totals: any, graph: any }) {
   );
 
 
-
-
   return (
     <Wrapper>
       <ScrollArea className={'first'}>
         <StatsWrapper>
           {/* <StatsBar cards={stats} /> */}
-          <LocationWrapper>Location: somewhere</LocationWrapper>
+          <LocationWrapper>Location: {location.replace(", United States", "")}</LocationWrapper>
           <AnotherWrapper>
             <StatsBar cards={stats} />
             <MapWrapper>
@@ -232,21 +228,26 @@ export async function getStaticProps() {
   const graphRes = await fetch(`${server}/api/database/activities/graph`);
   const graphData = await graphRes.json();
 
+  const locationRes = await fetch(`${server}/api/database/activities/location`);
+  const locationData = await locationRes.json();
+
+  const location = await getLocation(locationData);
+
   return {
     props: {
       totals: {
         day: sumData.days,
-        distance: (sumData.total_distance / 1000 / 1.6).toFixed(2),
-        elevation: sumData.total_elevation * 3.28,
+        distance: (sumData.total_distance / 1000 / 1.6).toFixed(1),
+        elevation: Math.round(sumData.total_elevation * 3.28),
         steps: Math.round(sumData.total_steps),
         calories: sumData.total_calories
       },
       graph: {
-        distances: graphData.distances.map((d: number) => (d / 1000 / 1.6).toFixed(2)),
-        elevations: graphData.elevations.map((e: number) => (e * 3.28).toFixed(2)),
+        distances: graphData.distances.map((d: number) => (d / 1000 / 1.6).toFixed(1)),
+        elevations: graphData.elevations.map((e: number) => (e * 3.28).toFixed(1)),
         dates: graphData.dates.map((date: string) => new Date(new Date(date).toDateString()).toISOString())
-      }
-
+      },
+      location: location
     }
   }
 
