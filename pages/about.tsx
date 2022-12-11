@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
+import cat from '../public/cat.jpg';
 
 const AboutWrapper = styled.div`
   display: grid;
   padding-top: 5vh;
   grid-template-columns: 25% auto;
   margin: auto;
-  width: 80%;
+  width: 90%;
   height: 100%;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
   &.second {
     display: flex;
     align-items: center;
@@ -16,7 +22,8 @@ const AboutWrapper = styled.div`
 `;
 
 const PhotoWrapper = styled.div`
-width: 100%`;
+  width: 100%;
+`;
 
 const Wrapper = styled.div`
   width: 100%
@@ -52,7 +59,14 @@ function About() {
     <Wrapper>
       <ScrollArea style={{ height: "89vh" }}>
         <AboutWrapper>
-          <PhotoWrapper>photo coming</PhotoWrapper>
+          <PhotoWrapper>
+            <Image
+              src={cat}
+              alt="Picture of Timmy"
+              width={200}
+              height={200}
+            />
+          </PhotoWrapper>
           <div>Tim is a level 5 vegan ultra-endurance athlete. He started running in 2020-something (he won&apos;t tell me right now) which
             is fine because he&apos;s preparing for finals.
             <br></br>
