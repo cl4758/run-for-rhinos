@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import StatsCard from './StatsCard';
 
 const StatsBarWrapper = styled.div`
-margin-top: 1vh;
+  margin-top: 1vh;
   display: grid;
   grid-template-rows: 0.9fr 0.9fr 0.9fr 0.9fr 0.9fr;
-  /* grid-template-columns: 0.5fr 0.8fr 0.6fr 0.7fr 0.7fr 0.7fr; */
+
   /* margin-top: 3vh; */
 
   /* justify-content: space-between; */
@@ -15,10 +15,13 @@ margin-top: 1vh;
   margin-right: auto; */
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    height: 85%;
-    justify-content: space-around;
-    margin-top: 0;
+    grid-template-rows: 20% 1fr 1fr 1fr;
+    grid-template-columns: 50% 50%;
+    padding-left: 3%;
+    padding-right: 3%;
+    height: 45%;
+    margin-bottom: 1vh;
+    padding-top: 3%;
   }
 `;
 

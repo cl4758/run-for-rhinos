@@ -1,31 +1,26 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import StatsBar from '../components/dashboard/StatsBar';
-import StatsSidebar from '../components/dashboard/StatsSidebar';
 import mapboxgl from 'mapbox-gl';
-import geoJson from '../lib/route.json';
 import StatsChart from '../components/dashboard/StatsChart';
 import Map, { FullscreenControl, GeolocateControl, Layer, LayerProps, Marker, NavigationControl, Popup, ScaleControl, Source } from 'react-map-gl';
 import Markers from '../lib/markers.json';
 import Pin from '../components/Pin';
 import { geoJSON } from 'leaflet';
-import * as geojson from 'geojson';
 
 
 
 const StatsWrapper = styled.div`
   width: 100%;
   height: 90%;
-  display: grid;
-  /* margin: 0 3vw 0 2vw; */
-  grid-template-rows: 10% auto;
-  /* @media (max-width: 768px) {
-    height: 100%;
-  } */
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-rows: 10% auto;
+  }
 `;
 
 const LocationWrapper = styled.div`
-margin-top: 1vh;
+  margin-top: 1vh;
 /* margin-left: 1vw; */
   padding-left: 7vw;
   box-sizing: border-box;
@@ -39,10 +34,12 @@ const AnotherWrapper = styled.div`
   width: 100%;
   height: 100%;
   /* margin: 0 5vw 0 0; */
-  display: grid;
-  grid-template-columns: 15% auto; 
-  @media (max-width: 768px) {
-    height: 100%;
+ 
+ 
+  @media (min-width: 768px) {
+    display: grid;
+  /* grid-template-columns: 15% auto;  */
+    grid-template-columns: 15% auto; 
   }
 `;
 
@@ -56,19 +53,19 @@ const MapWrapper = styled.div`
     height: 100%;
     width: 100%;
   }
-  & .sidebar {
-    /* background-color: rgba(35, 55, 75, 0.9); */
-    color: #fff;
-    padding: 6px 12px;
-    font-family: monospace;
-    z-index: 1;
-    position: absolute;
-    top: 10vh;
-    left: 3vw;
-    margin: 12px;
-    border-radius: 4px;
-    width: 90%;
+  & .mapboxgl-canvas {
+    width: 100%;
+    height: 100%;
   }
+
+  @media (max-width: 768px) {
+      width: 95%;
+      height: 55%;
+      margin: 10% auto 10% auto;
+      padding-top: 10%;
+      padding-left: 3%;
+      padding-right: 3%;
+    }
 `;
 
 const Wrapper = styled.div`
@@ -82,6 +79,15 @@ const ScrollArea = styled.div`
   width: 100%; */
   /* margin-top: 13vh; */
   background-color: ${props => props.style?.background};
+  @media (max-width: 768px) {
+    &.first {
+      height: 180vh;
+    }
+    &.second {
+      height: 150vh;
+    }
+    
+  }
 `;
 
 
@@ -93,23 +99,6 @@ interface MarkerProps {
   latitude: number
 }
 
-const pointLayer: LayerProps = {
-  id: 'point',
-  type: 'circle',
-  paint: {
-    'circle-radius': 10,
-    'circle-color': '#007cbf'
-  }
-};
-
-
-
-function pointOnCircle({ center, angle, radius }: { center: [number, number], angle: number, radius: number }) {
-  return {
-    type: 'Point',
-    coordinates: [center[0] + Math.cos(angle) * radius, center[1] + Math.sin(angle) * radius]
-  };
-}
 
 function Tracking({ totals, graph }: { totals: any, graph: any }) {
   // mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
@@ -135,14 +124,18 @@ function Tracking({ totals, graph }: { totals: any, graph: any }) {
     data: totals.elevation,
     metric: 'ft'
   }, {
-    title: 'Steps',
-    data: totals.steps
-  }, {
     title: 'Calories',
     data: totals.calories
+  }, {
+    title: 'Steps',
+    data: totals.steps
   }];
 
   const avgStats = [
+    {
+      title: 'Averages',
+      data: 'Averages',
+    },
     {
       title: 'Avg. Distance',
       data: (totals.distance / totals.day).toFixed(2),
@@ -188,14 +181,13 @@ function Tracking({ totals, graph }: { totals: any, graph: any }) {
 
   return (
     <Wrapper>
-      <ScrollArea>
+      <ScrollArea className={'first'}>
         <StatsWrapper>
           {/* <StatsBar cards={stats} /> */}
           <LocationWrapper>Location: somewhere</LocationWrapper>
           <AnotherWrapper>
             <StatsBar cards={stats} />
             <MapWrapper>
-
               <Map
                 initialViewState={{
                   longitude: -74,
@@ -219,7 +211,7 @@ function Tracking({ totals, graph }: { totals: any, graph: any }) {
           </AnotherWrapper>
         </StatsWrapper>
       </ScrollArea>
-      <ScrollArea>
+      <ScrollArea className={'second'}>
         <AnotherWrapper style={{ marginTop: "3%" }}>
           <StatsBar cards={avgStats} />
           <StatsChart distances={graph.distances} elevations={graph.elevations} dates={graph.dates} />

@@ -31,8 +31,9 @@ const ChartWrapper = styled.div`
 
   @media (max-width: 768px) {
     height: 50%;
-    width: 100%;
+    width: 90%;
     margin-top: 4vh;
+    margin: 0 auto 10% auto;
   }
 `;
 
