@@ -40,7 +40,7 @@ export async function updateActivityToDatabase(activity: any) {
 export async function getLocation(location: any) {
   const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
 
-  const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location.end_longitude},${location.end_latitude}.json?types=place,region&access_token=${mapbox_token}`);
+  const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location.end_longitude},${location.end_latitude}.json?types=place&access_token=${mapbox_token}`);
   const result = await response.json();
   const place = result.features[0].place_name;
   return place;
