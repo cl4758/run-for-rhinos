@@ -231,8 +231,11 @@ export async function getStaticProps() {
   const locationRes = await fetch(`${server}/api/database/activities/location`);
   const locationData = await locationRes.json();
 
-  const location = await getLocation(locationData);
-  const place = location.features[0].place_name;
+  const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
+
+  const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${locationData.end_longitude},${locationData.end_latitude}.json?types=place&access_token=${mapbox_token}`);
+  const result = await response.json();
+  const place = result.features[0].place_name;
   console.log(place);
 
   return {
