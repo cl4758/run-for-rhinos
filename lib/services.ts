@@ -42,6 +42,6 @@ export async function getLocation(location: any) {
 
   const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location.end_longitude},${location.end_latitude}.json?types=place&access_token=${mapbox_token}`);
   const result = await response.json();
-  const place = result.features[0].place_name;
-  return place;
+  // const place = result.features[0].place_name;
+  return result;
 }

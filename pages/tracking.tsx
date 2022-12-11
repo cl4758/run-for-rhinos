@@ -232,6 +232,8 @@ export async function getStaticProps() {
   const locationData = await locationRes.json();
 
   const location = await getLocation(locationData);
+  const place = location.features[0].place_name;
+  console.log(place);
 
   return {
     props: {
@@ -247,7 +249,7 @@ export async function getStaticProps() {
         elevations: graphData.elevations.map((e: number) => (e * 3.28).toFixed(1)),
         dates: graphData.dates.map((date: string) => new Date(new Date(date).toDateString()).toISOString())
       },
-      location: location
+      location: place
     }
   }
 
