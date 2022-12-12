@@ -36,7 +36,7 @@ const NavLink = styled(Link)`
     height: 5%;
     content: "";
     position: absolute;
-    background-color: #9E9EFF;
+    background-color: #9ad5f4;
     width: 0%;
     bottom: 10px;
   }
@@ -44,7 +44,7 @@ const NavLink = styled(Link)`
     height: 5%;
     content: "";
     position: absolute;
-    background-color: #9E9EFF;
+    background-color: #9ad5f4;
     bottom: 10px;
     opacity: 1;
     width: 80%;
@@ -61,7 +61,7 @@ const NavLink = styled(Link)`
   @media (max-width: 768px) {
     padding-top: 8%;
     &.active {
-      color: #9E9EFF;
+      color: #9ad5f4;
     }
   }
   z-index: 1;
@@ -83,7 +83,7 @@ const Title = styled.h2`
 const Button = styled.button`
   background: transparent;
   border-radius: 3px;
-  border: 2px solid #9E9EFF;
+  border: 2px solid #9ad5f4;
   color: inherit;
   font-size: 1em;
   width: 25%;
@@ -159,7 +159,6 @@ const HeaderOverlay = styled(Image)`
   width: 100vw;
   overflow: hidden;
   opacity: 15%;
-  z-index: 1;
 `;
 
 const DropdownMenu = styled.div`

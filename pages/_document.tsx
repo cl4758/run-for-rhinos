@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+          <link rel="icon" type="image/png" href="/public/favicon.png" />
         </Head>
         <body>
           <Main />

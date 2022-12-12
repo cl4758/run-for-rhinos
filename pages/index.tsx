@@ -86,7 +86,7 @@ export default function Home() {
         <title>Run for Rhinos</title>
         <meta name="description" content="Run for Rhinos Site" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/null/external-rhinoceros-animal-head-icongeek26-outline-gradient-icongeek26.png" />
       </Head>
 
       {/* <div> */}
