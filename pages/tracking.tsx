@@ -233,9 +233,9 @@ export async function getStaticProps() {
 
   const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
 
-  const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${locationData.end_longitude},${locationData.end_latitude}.json?types=place&access_token=pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw`);
-  const result = await response.json();
-  const place = result.features[0].place_name;
+  // const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${locationData.end_longitude},${locationData.end_latitude}.json?types=place&access_token=pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw`);
+  // const result = await response.json();
+  const place = await getLocation(locationData);
   console.log(place);
 
   return {
