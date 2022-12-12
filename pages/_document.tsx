@@ -6,6 +6,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=optional"
             rel="stylesheet"
@@ -15,7 +16,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
-          <link rel="icon" type="image/png" href="/public/favicon.png" />
+
         </Head>
         <body>
           <Main />
