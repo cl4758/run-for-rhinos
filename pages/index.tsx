@@ -11,6 +11,7 @@ const BackgroundImage = styled(Image)`
   width: 100vw;
   overflow: hidden;
   z-index: -1;
+  box-shadow: 0 0 8px 8px white inset;
 `;
 
 const OverlayImage = styled(Image)`
@@ -24,16 +25,25 @@ const OverlayImage = styled(Image)`
 
 const DescriptionWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 100%;
 `;
 
 const ScrollArea = styled.div`
-  height: ${props => props.style ? props.style.height : '89vh'};
+  height: ${props => props.style ? props.style.height : '87vh'};
   width: 100%;
   /* margin-top: 10vh; */
   background-color: ${props => props.style?.background};
+  /* &.first {
+    background-image: linear-gradient(black,black);
+  } */
+  /* &.image {
+    box-shadow: 0 -7px 4px -4px black inset;
+  } */
+  
+
 `;
 
 const Wrapper = styled.div`
@@ -45,7 +55,6 @@ const Description = styled.div`
     font-size: 3em;
     width: 100%;
   }
-  padding-top: 15%;
   color: inherit;
   /* align-items: center;
   align-self: center; */
@@ -57,15 +66,32 @@ const Description = styled.div`
 const Text = styled.div`
   @media (min-width: 768px) {
     font-size: 1.3em;
-    width: 80%;
   }
-  margin-top: 15%;
+  margin: 0 auto 0 auto;
   color: ${props => props.style ? props.style.color : 'inherit'};;
   /* align-items: center;
   align-self: center; */
   font-size: 1.3em;
-  width: 80%;
+  width: 90%;
   text-align: center;
+`;
+
+const TextWrapper = styled.div`
+  display: grid;
+  margin-left: 10%;
+  margin-right: 10%;
+  grid-template-columns: 50% 50%;
+  &.progress {
+    grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+ 
+  text-align: center;
+  > p {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
 `;
 
 export default function Home() {
@@ -90,7 +116,7 @@ export default function Home() {
       </Head>
 
       {/* <div> */}
-      <ScrollArea>
+      <ScrollArea className="image">
         <BackgroundImage
           alt="Rhino in front of a rainbow"
           src={rhino}
@@ -126,7 +152,7 @@ export default function Home() {
         </DescriptionWrapper>
       </ScrollArea>
 
-      <ScrollArea style={{ background: "black", height: "70vh" }}>
+      <ScrollArea style={{ height: "50vh" }} className="first">
         <DescriptionWrapper>
           <Text>
             On March 1st, Tim sets out from LA to NYC, covering approximately 3,078 miles over 90 days.
@@ -136,10 +162,51 @@ export default function Home() {
           </Text>
         </DescriptionWrapper>
       </ScrollArea>
-      <ScrollArea style={{ background: "white", height: "50vh" }}>
+      <ScrollArea style={{ background: "white", height: "75vh" }}>
         <DescriptionWrapper>
+          <TextWrapper className="startend">
+            <p style={{ color: "black" }}>
+              <h3>Start:</h3>
+              NYC <br></br>
+              12/17/22</p>
+            <p style={{ color: "black" }}>
+              <h3>End:</h3>
+              Boston <br></br>
+              12/24/22
+            </p>
+          </TextWrapper>
           <Text style={{ color: "black" }}>
-            If you&apos;re here, thank you for following along! You can track Tim&apos;s progress on the Tracking page or read more on the About page. Please donate!
+            <h2>NYC to Boston</h2>
+            <p style={{ color: "black" }}>
+              0 days, 0 miles run<br></br>
+              7 days, 242 miles left
+            </p>
+          </Text>
+        </DescriptionWrapper>
+      </ScrollArea>
+      <ScrollArea style={{ background: "#121212", height: "50vh" }}>
+        insert image
+      </ScrollArea>
+      <ScrollArea style={{ background: "white", height: "80vh" }}>
+        <DescriptionWrapper>
+          <TextWrapper className="startend">
+            <p style={{ color: "black" }}>
+              <h3>Start:</h3>
+              LA <br></br>
+              3/1/23</p>
+            <p style={{ color: "black" }}>
+              <h3>End:</h3>
+              NYC <br></br>
+              6/1/23
+            </p>
+          </TextWrapper>
+          <Text style={{ color: "black" }}>
+            <h2>LA to NYC</h2>
+            <p>Coming soon...</p>
+            {/* <p style={{ color: "black" }}>
+              0 days, 0 miles run<br></br>
+              90 days, 3078 miles left
+            </p> */}
           </Text>
         </DescriptionWrapper>
       </ScrollArea>
