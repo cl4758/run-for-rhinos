@@ -67,17 +67,19 @@ const StyledLink = styled.a`
   &.me {
     color: #a8fcbd;
   }
+  &.easteregg {
+    text-decoration: none;
+  }
 `;
 
 function About() {
 
   const mooseLinks = [{ link: 'https://instagram.com/moose.et.al', label: <IconBrandInstagram /> },
-  { link: 'https://www.tiktok.com/@christinelai_', label: <IconBrandTiktok /> },
-  { link: 'https://www.strava.com/athletes/66674345', label: <IconBrandStrava /> }];
+  { link: 'https://www.tiktok.com/@christinelai_', label: <IconBrandTiktok /> },];
 
   const myLinks = [
     { link: 'https://instagram.com/christinelai_', label: <IconBrandInstagram /> },
-    { link: 'https://www.strava.com/athletes/35558561', label: <IconBrandStrava /> }
+    { link: 'https://www.strava.com/athletes/35558561', label: <IconBrandStrava /> },
   ]
 
   const mooseIcons = mooseLinks.map((link) => {
@@ -138,7 +140,7 @@ function About() {
             In December, Tim is setting off on a 242-mile journey from NYC to Boston, to practice for his Transcon. This mostly includes practicing things like living out of a car, camping, not showering for days, not having access to a bathroom... oh yeah, and also running over 30 miles a day for multiple days in a row.
             <br></br>
             <br></br>
-            He currently lives in Brooklyn with his girlfriend, Christine (that&apos;s me 🙋), and adorable rescue dog, Moose.
+            He currently lives in Brooklyn with his girlfriend, Christine (that&apos;s <StyledLink href={'/easteregg/christine'} className="easteregg">me</StyledLink> 🙋), and adorable rescue dog, <StyledLink href={'/easteregg/moose'} className="easteregg">Moose</StyledLink>.
           </div>
         </AboutWrapper>
       </ScrollArea>
@@ -156,10 +158,10 @@ function About() {
               Tim&apos;s socials:&nbsp;&nbsp;{icons}
               <br></br>
               <br></br>
-              Moose:&nbsp;&nbsp;{mooseIcons}
+              <StyledLink href={'/easteregg/moose'} className="easteregg">Moose</StyledLink>:&nbsp;&nbsp;{mooseIcons}
               <br></br>
               <br></br>
-              Me:&nbsp;&nbsp;{myIcons}
+              <StyledLink href={'/easteregg/christine'} className="easteregg">Me</StyledLink>:&nbsp;&nbsp;{myIcons}
             </Text>
           </TextWrapper>
         </AboutWrapper>

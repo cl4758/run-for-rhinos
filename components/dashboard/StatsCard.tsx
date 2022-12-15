@@ -7,8 +7,8 @@ const CardHeader = styled.div`
   text-align: center;
   /* border-bottom: 1px; */
   border-width: 0px 0 1px 0;
-  border-color: black;
   border-style: solid;
+  border-color: black;
   height: 40%;
   justify-content: center;
   align-content: center;
