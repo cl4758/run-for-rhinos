@@ -7,14 +7,14 @@ export default async function handler(
 ) {
   console.log("in the activities api");
   const { id } = req.query;
+  const { accessToken } = JSON.parse(req.body);
   const url = `https://www.strava.com/api/v3/activities/${id}`;
 
   console.log(id);
 
 
-
   await axios
-    .get(url, { headers: { 'Authorization': `Bearer ${process.env.ACCESS_TOKEN!}` } })
+    .get(url, { headers: { 'Authorization': `Bearer ${accessToken}` } })
     .then(({ data }) => {
       console.log("data from api endpoint: ", data);
       // res.status(200).json({ data });

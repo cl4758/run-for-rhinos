@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
 import Activity from '../lib/models/activity';
+import { refreshToken } from '../lib/services';
+import Post from './easteregg/[params]';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,17 +21,24 @@ function Stats() {
 
   // const [activities, setActivities] = ;
 
-  const { data: result, error } = useSWR('/api/database/activities', fetcher);
-  if (error) return <h1>Something went wrong!</h1>
-  if (!result) return <h1>Loading...</h1>
+  // const { data: result, error } = useSWR('/api/database/activities', fetcher);
+  // if (error) return <h1>Something went wrong!</h1>
+  // if (!result) return <h1>Loading...</h1>
 
 
 
-  const getAthleteStats = () => {
+  async function getAthleteStats() {
+
+    const refresh = await refreshToken();
+    const data = {
+      accessToken: refresh.access_token,
+    };
     const postData = async () => {
-      const response = await fetch(`/api/strava/athlete/${id}`, {
-        method: "GET",
-      });
+      const response = await fetch(`/api/strava/athlete/${id}`,
+        {
+          method: "POST",
+          body: JSON.stringify(data)
+        });
       return response.json();
     };
 
@@ -123,12 +132,12 @@ function Stats() {
   //   console.log(location);
   // }
 
-  async function refreshToken() {
-    console.log(process.env.ACCESS_TOKEN);
-    const response = await fetch(`/api/refresh`);
-    console.log(response);
-    console.log(process.env.ACCESS_TOKEN);
-  }
+  // async function refreshToken() {
+  //   console.log(process.env.ACCESS_TOKEN);
+  //   const response = await fetch(`/api/refresh`);
+  //   console.log(response);
+  //   console.log(process.env.ACCESS_TOKEN);
+  // }
 
   return (
     <Wrapper>
@@ -137,7 +146,7 @@ function Stats() {
 
       {/* <div>{athlete.firstname}</div>
       <div>{athlete.city}</div> */}
-      <div>{result[0].name}</div>
+      {/* <div>{result[0].name}</div> */}
       <button onClick={getAthleteStats}>get stats</button>
       <div>{yearlyDistance / 100} kms</div>
       <button onClick={getActivity}>get activity</button>

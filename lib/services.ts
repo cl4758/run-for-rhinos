@@ -18,8 +18,15 @@ export async function getActivities() {
 }
 
 export async function getActivityById(id: number) {
+  const refresh = await refreshToken();
+  const data = {
+    accessToken: refresh.access_token,
+  };
   console.log('getting activity by id');
-  const activity = await fetch(`${server}/api/strava/activities/${id}`);
+  const activity = await fetch(`${server}/api/strava/activities/${id}`, {
+    method: "POST",
+    body: JSON.stringify(data)
+  });
   const result = activity.json();
   return result;
 }

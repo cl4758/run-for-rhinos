@@ -20,7 +20,7 @@ export default async function handler(
     .post(url, {}, { params })
     .then(({ data }) => {
       process.env.ACCESS_TOKEN = data.access_token;
-      res.status(200).send('successfully refreshed access token');
+      res.status(200).json(data);
     })
     .catch(({ err }) => {
       res.status(400).json({ err });
