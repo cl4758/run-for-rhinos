@@ -33,6 +33,7 @@ function Stats() {
     const data = {
       accessToken: refresh.access_token,
     };
+    console.log(data);
     const postData = async () => {
       const response = await fetch(`/api/strava/athlete/${id}`,
         {
