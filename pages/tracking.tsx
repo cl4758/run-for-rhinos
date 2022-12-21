@@ -259,7 +259,21 @@ export async function getStaticProps() {
     }
   } catch (error) {
     return {
-      props: null
+      props: {
+        totals: {
+          day: 0,
+          distance: 0,
+          elevation: 0,
+          steps: 0,
+          calories: 0
+        },
+        graph: {
+          distances: [0],
+          elevations: [0],
+          dates: [0],
+        },
+        location: 'none'
+      }
     }
   }
 

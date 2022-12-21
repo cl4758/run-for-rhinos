@@ -84,7 +84,7 @@ const ImageWrapper = styled.li`
   padding: 1%;
   flex-grow: 1;
   list-style-type: none;
-  height: 350px;
+  height: 300px;
   @media (max-width: 768px) {
     max-width: 200px;
   }
