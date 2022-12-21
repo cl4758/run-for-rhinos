@@ -21,6 +21,8 @@ export default async function handler(
   const client = await clientPromise;
   const db = client.db(process.env.DB_NAME);
 
+  console.log(process.env.COLLECTION);
+
   try {
 
     const activities = await db.collection(process.env.COLLECTION!).aggregate([

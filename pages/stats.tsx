@@ -151,20 +151,4 @@ function Stats() {
   );
 }
 
-// export async function getStaticProps() {
-
-//   const server = 'http://localhost:3000';
-
-//   const res = await fetch(`${server}/api/strava/athlete`);
-//   const stats = await res.json();
-
-//   process.env.ACCESS_TOKEN = 'acdf263dfd8e2aea6dfc8e466554f7a0aa7616f4';
-
-//   return {
-//     props: {
-//       stats
-//     }
-//   }
-// }
-
 export default Stats;

@@ -18,7 +18,7 @@ const AboutWrapper = styled.div`
   justify-items: center;
   margin-left: 1%;
   margin-right: 1%;
-  width: 90%;
+  width: 100%;
   height: 100%;
   @media (max-width: 768px) {
     display: flex;
@@ -61,6 +61,9 @@ const Text = styled.div`
 
 const ScrollArea = styled.div`
   height: ${props => props.style ? props.style.height : '89vh'};
+  @media (max-width: 768px) {
+    height: 160vh !important;
+  }
   width: 100%;
   /* margin-top: 10vh; */
   background-color: ${props => props.style?.background};
@@ -81,13 +84,25 @@ const ImageWrapper = styled.li`
   padding: 1%;
   flex-grow: 1;
   list-style-type: none;
+  height: 350px;
+  @media (max-width: 768px) {
+    max-width: 200px;
+  }
+
 `;
 
 const StyledImage = styled(Image)`
   max-height: 100%;
-  min-width: 100%;
+  /* min-width: 100%; */
   object-fit: cover;
   vertical-align: bottom;
+  position: static !important;
+  /* @media (max-width: 768px) {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  } */
+  
 `;
 
 
@@ -181,35 +196,40 @@ function About() {
             <StyledImage
               src={front}
               alt="Shot of Tim walking"
-              height={300}
+              fill
+              objectFit="contain"
             />
           </ImageWrapper>
           <ImageWrapper>
             <StyledImage
               src={running}
               alt="Tim running"
-              height={300}
+              fill
+              objectFit="contain"
             />
           </ImageWrapper>
           <ImageWrapper>
-            <Image
+            <StyledImage
               src={eating}
               alt="Tim eating from a bag"
-              height={300}
+              fill
+              objectFit="contain"
             />
           </ImageWrapper>
           <ImageWrapper>
             <StyledImage
               src={bbqChips2}
               alt="Tim eating bbq chips leaning against a car"
-              height={300}
+              fill
+              objectFit="contain"
             />
           </ImageWrapper>
           <ImageWrapper>
-            <Image
+            <StyledImage
               src={pointing}
               alt="Tim pointing at the camera"
-              height={300}
+              fill
+              objectFit="contain"
             />
           </ImageWrapper>
         </Gallery>

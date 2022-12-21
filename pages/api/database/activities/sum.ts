@@ -17,12 +17,12 @@ export default async function handler(
   res: NextApiResponse<Totals>
 ) {
   const client = await clientPromise;
-  const db = client.db("activitiesDB");
+  const db = client.db(process.env.DB_NAME);
 
 
   try {
 
-    const activities = await db.collection("activities").aggregate(
+    const activities = await db.collection(process.env.COLLECTION!).aggregate(
       [{
         $group:
         {
