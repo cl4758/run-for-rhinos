@@ -16,9 +16,10 @@ const AboutWrapper = styled.div`
   padding-top: 5vh;
   grid-template-columns: 30% auto;
   justify-items: center;
+  margin-right: 2%;
   margin-left: 1%;
-  margin-right: 1%;
-  width: 100%;
+
+  width: 96%;
   height: 100%;
   @media (max-width: 768px) {
     display: flex;
@@ -78,30 +79,29 @@ const Gallery = styled.ul`
   box-sizing: border-box;
   padding: 1em;
   max-height: 100%;
+  width: 96%;
 `;
 
 const ImageWrapper = styled.li`
   padding: 1%;
   flex-grow: 1;
   list-style-type: none;
-  height: 300px;
   @media (max-width: 768px) {
-    max-width: 200px;
+    max-width: 100%;
   }
 
 `;
 
 const StyledImage = styled(Image)`
   max-height: 100%;
-  /* min-width: 100%; */
+  min-width: 100%;
   object-fit: cover;
   vertical-align: bottom;
-  position: static !important;
-  /* @media (max-width: 768px) {
-    width: 100%;
-    max-height: 75vh;
-    min-width: 0;
-  } */
+  /* position: static !important; */
+  @media (max-width: 768px) {
+    max-width: 100%;
+    height: auto;
+  }
   
 `;
 
@@ -196,40 +196,40 @@ function About() {
             <StyledImage
               src={front}
               alt="Shot of Tim walking"
-              fill
-              objectFit="contain"
+              style={{ height: '300px', width: 'auto' }}
+              objectFit="cover"
             />
           </ImageWrapper>
           <ImageWrapper>
             <StyledImage
               src={running}
               alt="Tim running"
-              fill
-              objectFit="contain"
+              style={{ height: '300px', width: 'auto' }}
+              objectFit="cover"
             />
           </ImageWrapper>
           <ImageWrapper>
             <StyledImage
               src={eating}
               alt="Tim eating from a bag"
-              fill
-              objectFit="contain"
+              style={{ height: '300px', width: 'auto' }}
+              objectFit="cover"
             />
           </ImageWrapper>
           <ImageWrapper>
             <StyledImage
               src={bbqChips2}
               alt="Tim eating bbq chips leaning against a car"
-              fill
-              objectFit="contain"
+              style={{ height: '300px', width: 'auto' }}
+              objectFit="cover"
             />
           </ImageWrapper>
           <ImageWrapper>
             <StyledImage
               src={pointing}
               alt="Tim pointing at the camera"
-              fill
-              objectFit="contain"
+              style={{ height: '300px', width: 'auto' }}
+              objectFit="cover"
             />
           </ImageWrapper>
         </Gallery>
