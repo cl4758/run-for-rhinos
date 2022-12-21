@@ -35,9 +35,9 @@ export default async function handler(
       }]).toArray() as unknown as Totals[];
     console.log(activities[0]);
 
-    res.status(200).send(activities[0]);
+    res.status(200).json(activities[0]);
   } catch (error: any) {
-    res.status(500).send(error.message);
+    res.status(500).json(error.message);
   }
 
 }
