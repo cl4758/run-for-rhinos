@@ -35,9 +35,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     const { aspect_type, object_id, object_type } = body;
 
     if (aspect_type === 'create' && object_type === 'activity') {
-      console.log("create");
-
-      const refresh = await refreshToken();
+      console.log("create activity");
 
       const activity = await getActivityById(object_id);
 

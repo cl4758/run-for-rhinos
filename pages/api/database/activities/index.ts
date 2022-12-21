@@ -19,7 +19,7 @@ export default async function handler(
   switch (method) {
     case 'GET':
       try {
-        const activities = await db.collection("activities").find({}).toArray() as unknown as Activity[];
+        const activities = await db.collection(process.env.COLLECTION!).find({}).toArray() as unknown as Activity[];
 
         res.status(200).send(activities);
       } catch (error: any) {
@@ -31,8 +31,8 @@ export default async function handler(
         const bodyObject = JSON.parse(req.body);
 
         console.log(bodyObject);
-        await db.collection("activities").createIndex({ activity_id: 1 }, { unique: true });
-        const result = await db.collection("activities").insertOne(bodyObject);
+        await db.collection(process.env.COLLECTION!).createIndex({ activity_id: 1 }, { unique: true });
+        const result = await db.collection(process.env.COLLECTION!).insertOne(bodyObject);
         result
           ? res.status(201).send(`Successfully created a new activity with id ${result.insertedId}`)
           : res.status(500).send("Failed to create a new activity.");

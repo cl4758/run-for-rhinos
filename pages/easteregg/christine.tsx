@@ -25,7 +25,7 @@ function Christine() {
         </p>
         <br></br>
         <br></br>
-        Moose was a lonely stray dog from Puerto Rico when I adopted him on 3/14/21, and similarly, Timmy was also a lonely stray when I adopted him on 2/4/22. Just kidding I didn&apos;t adopt either of them, I gave birth to Moose and kidnapped Timmy.
+        Moose was a lonely stray dog from Puerto Rico when I adopted him on 3/14/21, and similarly, Timmy was also a lonely stray when I adopted him on 2/1/22. Just kidding I didn&apos;t adopt either of them, I gave birth to Moose and kidnapped Timmy.
       </TextWrapper>
     </Wrapper>
   )

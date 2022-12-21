@@ -25,7 +25,7 @@ export default async function handler(
         console.log(id);
         const query = { activity_id: parseInt(id as string) };
         console.log(query);
-        const activity = await db.collection("activities").find(query).toArray();
+        const activity = await db.collection(process.env.COLLECTION!).find(query).toArray();
 
         console.log("get activity", activity);
 
@@ -43,7 +43,7 @@ export default async function handler(
 
         console.log(bodyObject);
 
-        const result = await db.collection("activities").updateOne(query, { $set: bodyObject });
+        const result = await db.collection(process.env.COLLECTION!).updateOne(query, { $set: bodyObject });
         console.log(result);
 
         result
@@ -57,7 +57,7 @@ export default async function handler(
     case 'DELETE':
       try {
         const query = { activity_id: parseInt(id as string) };
-        const result = await db.collection("activities").deleteOne(query);
+        const result = await db.collection(process.env.COLLECTION!).deleteOne(query);
 
         if (result && result.deletedCount) {
           res.status(202).send(`Successfully removed activity with id ${id}`);

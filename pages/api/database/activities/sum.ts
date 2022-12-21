@@ -21,7 +21,7 @@ export default async function handler(
 
   try {
 
-    const activities = await db.collection("activities").aggregate(
+    const activities = await db.collection(process.env.COLLECTION!).aggregate(
       [{
         $group:
         {

@@ -4,13 +4,20 @@ import Image from 'next/image';
 import cat from '../public/cat.jpg';
 import { IconBrandStrava, IconBrandInstagram, IconBrandTiktok } from '@tabler/icons';
 import { icons } from '../components/layout/Footer';
-
+import bbqChips from '../public/bbqChips.jpg';
+import bbqChips2 from '../public/bbqChips2.jpg';
+import running from '../public/running.jpg';
+import front from '../public/front.jpg';
+import pointing from '../public/pointing.jpg';
+import eating from '../public/eating.jpg';
 
 const AboutWrapper = styled.div`
   display: grid;
   padding-top: 5vh;
-  grid-template-columns: 25% auto;
-  margin: auto;
+  grid-template-columns: 30% auto;
+  justify-items: center;
+  margin-left: 1%;
+  margin-right: 1%;
   width: 90%;
   height: 100%;
   @media (max-width: 768px) {
@@ -29,6 +36,7 @@ const PhotoWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-top: 1vh;
   padding-bottom: 3vh;
 `;
 
@@ -58,6 +66,30 @@ const ScrollArea = styled.div`
   background-color: ${props => props.style?.background};
   background-image: ${props => props.style?.backgroundImage};
 `;
+
+const Gallery = styled.ul`
+  display: flex;
+  margin-left: 2%;
+  margin-right: 2%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 1em;
+  max-height: 100%;
+`;
+
+const ImageWrapper = styled.li`
+  padding: 1%;
+  flex-grow: 1;
+  list-style-type: none;
+`;
+
+const StyledImage = styled(Image)`
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+`;
+
 
 const StyledLink = styled.a`
   color: white;
@@ -117,10 +149,9 @@ function About() {
         <AboutWrapper>
           <PhotoWrapper>
             <Image
-              src={cat}
+              src={bbqChips}
               alt="Picture of Timmy"
-              width={200}
-              height={200}
+              height={400}
             />
           </PhotoWrapper>
           <div>Tim is a level 5 vegan ultra-endurance athlete. He started running in 2020-something (he won&apos;t tell me right now) which
@@ -144,12 +175,44 @@ function About() {
           </div>
         </AboutWrapper>
       </ScrollArea>
-      <ScrollArea style={{ backgroundImage: "url(https://img.freepik.com/free-vector/gradient-mountain-landscape_23-2149162009.jpg?w=1800&t=st=1670798087~exp=1670798687~hmac=cca3e72bec9e95f8774c430d95560d568c1bb242b3de3b63cf0226dbbd8794e7)", height: "50vh" }}>
-        <TextWrapper>
-          <Text>
-
-          </Text>
-        </TextWrapper>
+      <ScrollArea style={{ height: "120vh" }}>
+        <Gallery>
+          <ImageWrapper>
+            <StyledImage
+              src={front}
+              alt="Shot of Tim walking"
+              height={300}
+            />
+          </ImageWrapper>
+          <ImageWrapper>
+            <StyledImage
+              src={running}
+              alt="Tim running"
+              height={300}
+            />
+          </ImageWrapper>
+          <ImageWrapper>
+            <Image
+              src={eating}
+              alt="Tim eating from a bag"
+              height={300}
+            />
+          </ImageWrapper>
+          <ImageWrapper>
+            <StyledImage
+              src={bbqChips2}
+              alt="Tim eating bbq chips leaning against a car"
+              height={300}
+            />
+          </ImageWrapper>
+          <ImageWrapper>
+            <Image
+              src={pointing}
+              alt="Tim pointing at the camera"
+              height={300}
+            />
+          </ImageWrapper>
+        </Gallery>
       </ScrollArea>
       <ScrollArea style={{ height: '50vh' }}>
         <AboutWrapper className={"second"}>

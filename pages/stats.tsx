@@ -49,8 +49,8 @@ function Stats() {
     });
   };
 
-  async function getActivity() {
-    const response = await fetch(`/api/strava/activities/${8180156123}`);
+  async function getActivity(id: number) {
+    const response = await fetch(`/api/strava/activities/${id}`);
     const activity = await response.json();
     console.log(activity);
     // await fetch(`api/strava/activities/${8139852397}`).then((activity) => {
@@ -119,38 +119,29 @@ function Stats() {
     console.log(activity);
   }
 
-  // async function getLocation() {
-  //   const response = await fetch(`/api/database/activities/location`);
-  //   const location = await response.json();
-
-  //   const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
-
-  //   const reverseGeocode = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location.end_longitude},${location.end_latitude}.json?types=place,region&access_token=${mapbox_token}`);
-
-  //   const city = await reverseGeocode.json();
-  //   console.log(city);
-
-  //   console.log(location);
-  // }
-
-  // async function refreshToken() {
-  //   console.log(process.env.ACCESS_TOKEN);
-  //   const response = await fetch(`/api/refresh`);
-  //   console.log(response);
-  //   console.log(process.env.ACCESS_TOKEN);
-  // }
+  function handleSubmit(event: any) {
+    console.log(event);
+    const activityId = event.target[0].value;
+    getActivity(activityId);
+    event.preventDefault();
+  }
 
   return (
     <Wrapper>
       <h2>Strava Stats</h2>
       <p>This page will have stats</p>
 
+      <form onSubmit={handleSubmit}>
+        <input type="number" />
+        <input type="submit" value="Submit" />
+      </form>
+
       {/* <div>{athlete.firstname}</div>
       <div>{athlete.city}</div> */}
       {/* <div>{result[0].name}</div> */}
       <button onClick={getAthleteStats}>get stats</button>
       <div>{yearlyDistance / 100} kms</div>
-      <button onClick={getActivity}>get activity</button>
+      {/* <button onClick={getActivity}>get activity</button> */}
       <button onClick={getTotalDistance}>get total distance</button>
       <button onClick={refreshToken}>refresh</button>
       {/* <button onClick={getLocation}>location</button> */}

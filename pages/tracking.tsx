@@ -7,7 +7,7 @@ import Map, { FullscreenControl, GeolocateControl, Layer, LayerProps, Marker, Na
 import Markers from '../lib/markers.json';
 import Pin from '../components/Pin';
 import { geoJSON } from 'leaflet';
-import { getLocation } from '../lib/services';
+import { getLocation, refreshToken } from '../lib/services';
 
 
 
@@ -117,7 +117,7 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
   }, {
     title: 'Distance',
     data: totals.distance,
-    metric: 'miles',
+    metric: 'mi',
     goal: 3078
   }, {
     title: 'Elevation',
@@ -139,7 +139,7 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
     {
       title: 'Avg. Distance',
       data: (totals.distance / totals.day).toFixed(2),
-      metric: 'miles',
+      metric: 'mi',
       goal: 3078
     }, {
       title: 'Avg. Elevation',

@@ -17,7 +17,7 @@ export default async function handler(
   const db = client.db(process.env.DB_NAME);
 
   try {
-    const activities = await db.collection("activities").find().limit(1).sort({ $natural: -1 }).project({ end_latitude: 1, end_longitude: 1, _id: 0 }).toArray() as unknown as Location[];
+    const activities = await db.collection(process.env.COLLECTION!).find().limit(1).sort({ $natural: -1 }).project({ end_latitude: 1, end_longitude: 1, _id: 0 }).toArray() as unknown as Location[];
 
     res.status(200).send(activities[0]);
   } catch (error: any) {

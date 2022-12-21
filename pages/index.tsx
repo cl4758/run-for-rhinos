@@ -4,9 +4,19 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import rhino from '../public/rhino_rainbow.jpg';
 import overlay from '../public/black.jpg';
+import running1 from '../public/running1.jpg';
 
 const BackgroundImage = styled(Image)`
   position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+  box-shadow: 0 0 8px 8px white inset;
+`;
+
+const BackImage = styled(Image)`
+  /* position: fixed; */
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -36,18 +46,21 @@ const ScrollArea = styled.div`
   width: 100%;
   /* margin-top: 10vh; */
   background-color: ${props => props.style?.background};
-  /* &.first {
-    background-image: linear-gradient(black,black);
-  } */
-  /* &.image {
-    box-shadow: 0 -7px 4px -4px black inset;
-  } */
-  
+`;
+
+const ImageWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
 `;
 
 const Wrapper = styled.div`
   width: 100%
+`;
+
+const StyledLink = styled.a`
+  color: white;
 `;
 
 const Description = styled.div`
@@ -158,47 +171,71 @@ export default function Home() {
             On March 1st, Tim sets out from LA to NYC, covering approximately 3,078 miles over 90 days.
             <br></br>
             <br></br>
-            To prepare, on December 17th, Tim will run from NYC to BOS, a journey of 242 miles over 7 days.
+            To prepare, on December 17th, Tim will run from NYC to BOS, a journey of 240 miles over 6 days.
           </Text>
         </DescriptionWrapper>
       </ScrollArea>
-      <ScrollArea style={{ background: "white", height: "75vh" }}>
+      <ScrollArea style={{ background: "white", height: "70vh" }}>
         <DescriptionWrapper>
           <TextWrapper className="startend">
-            <p style={{ color: "black" }}>
-              <h3>Start:</h3>
-              NYC <br></br>
-              12/17/22</p>
-            <p style={{ color: "black" }}>
-              <h3>End:</h3>
-              Boston <br></br>
-              12/24/22
-            </p>
+            <div>
+              <h3 style={{ color: "black" }}>Start:</h3>
+              <p style={{ color: "black" }}>
+                NYC <br></br>
+                12/17/22
+              </p>
+            </div>
+            <div>
+              <h3 style={{ color: "black" }}>End:</h3>
+              <p style={{ color: "black" }}>
+                Boston <br></br>
+                12/23/22
+              </p>
+            </div>
           </TextWrapper>
           <Text style={{ color: "black" }}>
             <h2>NYC to Boston</h2>
             <p style={{ color: "black" }}>
-              0 days, 0 miles run<br></br>
-              7 days, 242 miles left
+              4 days, 147 miles run<br></br>
+              2 days, 89 miles left
             </p>
           </Text>
         </DescriptionWrapper>
       </ScrollArea>
-      <ScrollArea style={{ background: "#121212", height: "50vh" }}>
-        insert image
+      <ScrollArea style={{ background: "black", height: "30vh" }}>
+        <DescriptionWrapper>
+          <Text>
+            Follow along on&nbsp;
+            <StyledLink
+              href={'https://www.strava.com/athletes/66674345'}
+              target="_blank"
+              rel="noopener noreferrer">Strava
+            </StyledLink>
+            &nbsp;and&nbsp;
+            <StyledLink
+              href={'https://www.instagram.com/timgoesfar/'}
+              target="_blank"
+              rel="noopener noreferrer">Instagram
+            </StyledLink>
+          </Text>
+        </DescriptionWrapper>
       </ScrollArea>
-      <ScrollArea style={{ background: "white", height: "80vh" }}>
+      <ScrollArea style={{ background: "white", height: "70vh" }}>
         <DescriptionWrapper>
           <TextWrapper className="startend">
-            <p style={{ color: "black" }}>
-              <h3>Start:</h3>
-              LA <br></br>
-              3/1/23</p>
-            <p style={{ color: "black" }}>
-              <h3>End:</h3>
-              NYC <br></br>
-              6/1/23
-            </p>
+            <div>
+              <h3 style={{ color: "black" }}>Start:</h3>
+              <p style={{ color: "black" }}>
+                LA <br></br>
+                3/1/23</p>
+            </div>
+            <div>
+              <h3 style={{ color: "black" }}>End:</h3>
+              <p style={{ color: "black" }}>
+                NYC <br></br>
+                6/1/23
+              </p>
+            </div>
           </TextWrapper>
           <Text style={{ color: "black" }}>
             <h2>LA to NYC</h2>
