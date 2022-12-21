@@ -222,37 +222,44 @@ export async function getStaticProps() {
   const dev = process.env.NODE_ENV !== 'production';
   const server = dev ? 'http://localhost:3000' : 'https://run-for-rhinos.vercel.app';
 
-  const sumRes = await fetch(`${server}/api/database/activities/sum`);
-  const sumData = await sumRes.json();
+  try {
 
-  const graphRes = await fetch(`${server}/api/database/activities/graph`);
-  const graphData = await graphRes.json();
+    const sumRes = await fetch(`${server}/api/database/activities/sum`);
+    const sumData = await sumRes.json();
 
-  const locationRes = await fetch(`${server}/api/database/activities/location`);
-  const locationData = await locationRes.json();
+    const graphRes = await fetch(`${server}/api/database/activities/graph`);
+    const graphData = await graphRes.json();
 
-  const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
+    const locationRes = await fetch(`${server}/api/database/activities/location`);
+    const locationData = await locationRes.json();
 
-  // const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${locationData.end_longitude},${locationData.end_latitude}.json?types=place&access_token=pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw`);
-  // const result = await response.json();
-  const place = await getLocation(locationData);
-  console.log(place);
+    const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
 
-  return {
-    props: {
-      totals: {
-        day: sumData.days,
-        distance: (sumData.total_distance / 1000 / 1.6).toFixed(1),
-        elevation: Math.round(sumData.total_elevation * 3.28),
-        steps: Math.round(sumData.total_steps),
-        calories: sumData.total_calories
-      },
-      graph: {
-        distances: graphData.distances.map((d: number) => (d / 1000 / 1.6).toFixed(1)),
-        elevations: graphData.elevations.map((e: number) => (e * 3.28).toFixed(1)),
-        dates: graphData.dates.map((date: string) => new Date(new Date(date).toDateString()).toISOString())
-      },
-      location: place
+    // const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${locationData.end_longitude},${locationData.end_latitude}.json?types=place&access_token=pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw`);
+    // const result = await response.json();
+    const place = await getLocation(locationData);
+    console.log(place);
+
+    return {
+      props: {
+        totals: {
+          day: sumData.days,
+          distance: (sumData.total_distance / 1000 / 1.6).toFixed(1),
+          elevation: Math.round(sumData.total_elevation * 3.28),
+          steps: Math.round(sumData.total_steps),
+          calories: sumData.total_calories
+        },
+        graph: {
+          distances: graphData.distances.map((d: number) => (d / 1000 / 1.6).toFixed(1)),
+          elevations: graphData.elevations.map((e: number) => (e * 3.28).toFixed(1)),
+          dates: graphData.dates.map((date: string) => new Date(new Date(date).toDateString()).toISOString())
+        },
+        location: place
+      }
+    }
+  } catch (error) {
+    return {
+      props: null
     }
   }
 
