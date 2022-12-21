@@ -66,13 +66,12 @@ const StyledLink = styled.a`
 const Description = styled.div`
   @media (min-width: 768px) {
     font-size: 3em;
-    width: 100%;
   }
   color: inherit;
   /* align-items: center;
   align-self: center; */
   font-size: 2.85em;
-  width: 70%;
+  width: 100%;
   text-align: center;
 `;
 
