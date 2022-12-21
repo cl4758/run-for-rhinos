@@ -193,7 +193,7 @@ const MenuOverlay = styled(Image) <{ background: string }>`
   width: 100vw;
   overflow: hidden;
   z-index: 1;
-  opacity: 100%;
+  opacity: 80%;
   ${props => {
     if (props.background === '/') return `opacity: 15%`
   }}
