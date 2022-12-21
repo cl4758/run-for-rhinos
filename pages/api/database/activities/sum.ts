@@ -24,7 +24,7 @@ export default async function handler(
 
   try {
 
-    const activities = await db.collection(collection).aggregate(
+    const activities = await db.collection("nyc2bos").aggregate(
       [{
         $group:
         {
