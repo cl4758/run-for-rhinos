@@ -220,7 +220,7 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
 
 export async function getStaticProps() {
   const dev = process.env.NODE_ENV !== 'production';
-  const server = dev ? 'http://localhost:3000' : '';
+  const server = dev ? 'http://localhost:3000' : 'https://run-for-rhinos.vercel.app';
 
   const sumRes = await fetch(`${server}/api/database/activities/sum`);
   const sumData = await sumRes.json();

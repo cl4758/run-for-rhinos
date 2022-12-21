@@ -17,7 +17,7 @@ export default async function handler(
   res: NextApiResponse<Totals>
 ) {
   const client = await clientPromise;
-  const db = client.db(process.env.DB_NAME);
+  const db = client.db("activitiesDB");
 
 
   try {
