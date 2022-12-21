@@ -126,6 +126,14 @@ function Stats() {
     event.preventDefault();
   }
 
+  async function connectToDb() {
+    const dev = process.env.NODE_ENV !== 'production';
+    const server = dev ? 'http://localhost:3000' : 'https://run-for-rhinos.vercel.app';
+    const sumRes = await fetch(`${server}/api/database/activities/sum`);
+    const sumData = await sumRes.json();
+    console.log(sumData);
+  }
+
   return (
     <Wrapper>
       <h2>Strava Stats</h2>
@@ -144,6 +152,7 @@ function Stats() {
       {/* <button onClick={getActivity}>get activity</button> */}
       <button onClick={getTotalDistance}>get total distance</button>
       <button onClick={refreshToken}>refresh</button>
+      <button onClick={connectToDb}>connect</button>
       {/* <button onClick={getLocation}>location</button> */}
       {/* <button onClick={pushActivity}>push activity</button> */}
       {/* <button onClick={getActivity}>get stats</button> */}

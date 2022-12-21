@@ -89,7 +89,6 @@ const ImageWrapper = styled.li`
   @media (max-width: 768px) {
     max-width: 100%;
   }
-
 `;
 
 const StyledImage = styled(Image)`
