@@ -222,8 +222,8 @@ export async function getStaticProps() {
   const dev = process.env.NODE_ENV !== 'production';
   const server = dev ? 'http://localhost:3000' : 'https://run-for-rhinos.vercel.app';
 
-  const sumRes = await fetch(`${server}/api/database/activities/sum`);
-  const sumData = await sumRes.json();
+  // const sumRes = await fetch(`${server}/api/database/activities/sum`);
+  // const sumData = await sumRes.json();
 
   const graphRes = await fetch(`${server}/api/database/activities/graph`);
   const graphData = await graphRes.json();
@@ -241,11 +241,11 @@ export async function getStaticProps() {
   return {
     props: {
       totals: {
-        day: sumData.days,
-        distance: (sumData.total_distance / 1000 / 1.6).toFixed(1),
-        elevation: Math.round(sumData.total_elevation * 3.28),
-        steps: Math.round(sumData.total_steps),
-        calories: sumData.total_calories
+        // day: sumData.days,
+        // distance: (sumData.total_distance / 1000 / 1.6).toFixed(1),
+        // elevation: Math.round(sumData.total_elevation * 3.28),
+        // steps: Math.round(sumData.total_steps),
+        // calories: sumData.total_calories
       },
       graph: {
         distances: graphData.distances.map((d: number) => (d / 1000 / 1.6).toFixed(1)),
