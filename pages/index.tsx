@@ -195,8 +195,8 @@ export default function Home() {
           <Text style={{ color: "black" }}>
             <h2>NYC to Boston</h2>
             <p style={{ color: "black" }}>
-              4 days, 147 miles run<br></br>
-              2 days, 89 miles left
+              5 days, 184 miles run<br></br>
+              1 day, 50 miles left
             </p>
           </Text>
         </DescriptionWrapper>
