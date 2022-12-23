@@ -158,7 +158,7 @@ const HeaderOverlay = styled(Image)`
   height: 10vh;
   width: 100vw;
   overflow: hidden;
-  opacity: 15%;
+  opacity: 55%;
 `;
 
 const DropdownMenu = styled.div`
@@ -195,7 +195,7 @@ const MenuOverlay = styled(Image) <{ background: string }>`
   z-index: 1;
   opacity: 80%;
   ${props => {
-    if (props.background === '/') return `opacity: 15%`
+    if (props.background === '/') return `opacity: 55%`
   }}
 `;
 
