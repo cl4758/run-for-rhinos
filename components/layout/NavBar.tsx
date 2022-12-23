@@ -78,6 +78,10 @@ const Title = styled.h2`
   z-index: 1;
   margin-left: 1vw;
   font-family: 'Rubik Dirt', 'Segoe UI', sans-serif;
+  > a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const Button = styled.button`
@@ -228,7 +232,7 @@ function NavBar({ links }: NavigationProps) {
         placeholder="blur"
       />
       <NavWrapper>
-        <Title>Run for Rhinos</Title>
+        <Title><Link href="/">Run for Rhinos</Link></Title>
         <MenuBurger onClick={handleOpen}><IconMenu2 /></MenuBurger>
         {open ? <DropdownMenuWrapper>
           <MenuOverlay alt="overlay"
