@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
-import rhino from '../public/rhino_rainbow.jpg';
+import rhino from '../public/rhino_rainbow-min.jpg';
 import overlay from '../public/black.jpg';
 import running1 from '../public/running1.jpg';
 
@@ -195,8 +195,8 @@ export default function Home() {
           <Text style={{ color: "black" }}>
             <h2>NYC to Boston</h2>
             <p style={{ color: "black" }}>
-              5 days, 184 miles run<br></br>
-              1 day, 50 miles left
+              6 days, 231 miles run<br></br>
+              0 days, 0 miles left
             </p>
           </Text>
         </DescriptionWrapper>
