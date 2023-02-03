@@ -11,5 +11,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({})
 
 module.exports = (_, nextConfig) => {
-  return withBundleAnalyzer(nextConfig);
+  return withBundleAnalyzer({
+    reactStrictMode: true,
+    swcMinify: true,
+    optimizeFonts: false,
+  });
 }

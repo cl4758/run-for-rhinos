@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import cat from '../public/cat.jpg';
 import { IconBrandStrava, IconBrandInstagram, IconBrandTiktok } from '@tabler/icons';
 import { icons } from '../components/layout/Footer';
 import bbqChips from '../public/bbqChips.jpg';
@@ -66,7 +65,6 @@ const ScrollArea = styled.div`
     height: 160vh !important;
   }
   width: 100%;
-  /* margin-top: 10vh; */
   background-color: ${props => props.style?.background};
   background-image: ${props => props.style?.backgroundImage};
 `;
@@ -96,7 +94,6 @@ const StyledImage = styled(Image)`
   min-width: 100%;
   object-fit: cover;
   vertical-align: bottom;
-  /* position: static !important; */
   @media (max-width: 768px) {
     max-width: 100%;
     height: auto;

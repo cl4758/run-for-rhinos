@@ -1,13 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import StatsBar from '../components/dashboard/StatsBar';
 import mapboxgl from 'mapbox-gl';
 import StatsChart from '../components/dashboard/StatsChart';
-import Map, { FullscreenControl, GeolocateControl, Layer, LayerProps, Marker, NavigationControl, Popup, ScaleControl, Source } from 'react-map-gl';
+import Map, { FullscreenControl, GeolocateControl, Marker, NavigationControl } from 'react-map-gl';
 import Markers from '../lib/markers.json';
 import Pin from '../components/Pin';
-import { geoJSON } from 'leaflet';
-import { getLocation, refreshToken } from '../lib/services';
+import { getLocation } from '../lib/services';
 
 
 
@@ -22,7 +21,6 @@ const StatsWrapper = styled.div`
 
 const LocationWrapper = styled.div`
   margin-top: 1vh;
-/* margin-left: 1vw; */
   padding-left: 5vw;
   box-sizing: border-box;
 
@@ -30,24 +28,18 @@ const LocationWrapper = styled.div`
 
 const AnotherWrapper = styled.div`
   padding-top: ${props => props.style ? props.style.marginTop : '0'};
-  /* margin-top: 2vh;
-  margin-left: 0.5vw; */
   width: 100%;
   height: 100%;
-  /* margin: 0 5vw 0 0; */
  
  
   @media (min-width: 768px) {
     display: grid;
-  /* grid-template-columns: 15% auto;  */
     grid-template-columns: 15% auto; 
   }
 `;
 
 
 const MapWrapper = styled.div`
-/* margin-top: 1vh; */
-/* margin-left: 1vw; */
   width: 96%;
   height: 100%;
   & .map-container {
@@ -76,9 +68,6 @@ width: 100%`
 const ScrollArea = styled.div`
   height: ${props => props.style ? props.style.height : '89vh'};
   width: 100%;
-  /* height: 100%;
-  width: 100%; */
-  /* margin-top: 13vh; */
   background-color: ${props => props.style?.background};
   @media (max-width: 768px) {
     &.first {
@@ -91,17 +80,8 @@ const ScrollArea = styled.div`
   }
 `;
 
-interface MarkerProps {
-  city: string,
-  state: string,
-  longitude: number,
-  latitude: number
-}
-
-
 
 function Tracking({ totals, graph, location }: { totals: any, graph: any, location: string }) {
-  // mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
   mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnF4ZWN3MDF1bTN2cXczM2I4bWg4diJ9.dz7Y_IKDnuXkHNOHG-20Ug";
   // const mapContainer = useRef(null);
   // const map = useRef<mapboxgl.Map | null>(null);
@@ -165,7 +145,6 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
           anchor="bottom"
           onClick={e => {
             e.originalEvent.stopPropagation();
-            // setPopupInfo(city);
           }}
         >
           <Pin />
@@ -179,7 +158,6 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
     <Wrapper>
       <ScrollArea className={'first'}>
         <StatsWrapper>
-          {/* <StatsBar cards={stats} /> */}
           <LocationWrapper>Location: {location.replace(", United States", "")}</LocationWrapper>
           <AnotherWrapper>
             <StatsBar cards={stats} />
@@ -190,13 +168,9 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
                   latitude: 40.7128,
                   zoom: 8,
                   bearing: 0,
-                  pitch: 0
+                  pitch: 0,
                 }}
-                //40.7128, 74
-                //-96, 38, 3.5
-                // style={{ width: 600, height: 400 }}
-                // mapStyle="mapbox://styles/mapbox/outdoors-v12"
-                mapStyle="mapbox://styles/christinelai00/clbh59tn5003k14qp7d6vruss/draft"
+                mapStyle="mapbox://styles/christinelai00/clbh59tn5003k14qp7d6vruss/draft?optimize=true"
               >
                 <GeolocateControl position="top-left" />
                 <FullscreenControl position="top-left" />

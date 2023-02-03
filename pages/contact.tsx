@@ -38,10 +38,10 @@ const FormGroup = styled.div`
 `;
 
 function Contact() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [message, setMessage] = useState('');
 
   const handleSubmit = () => {
     console.log("form submitted");

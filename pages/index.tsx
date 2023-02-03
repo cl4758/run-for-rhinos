@@ -4,7 +4,6 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import rhino from '../public/rhino_rainbow-min.jpg';
 import overlay from '../public/black.jpg';
-import running1 from '../public/running1.jpg';
 
 const BackgroundImage = styled(Image)`
   position: fixed;
@@ -15,14 +14,6 @@ const BackgroundImage = styled(Image)`
   box-shadow: 0 0 8px 8px white inset;
 `;
 
-const BackImage = styled(Image)`
-  /* position: fixed; */
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  z-index: -1;
-  box-shadow: 0 0 8px 8px white inset;
-`;
 
 const OverlayImage = styled(Image)`
   position: fixed;
@@ -44,7 +35,6 @@ const DescriptionWrapper = styled.div`
 const ScrollArea = styled.div`
   height: ${props => props.style ? props.style.height : '87vh'};
   width: 100%;
-  /* margin-top: 10vh; */
   background-color: ${props => props.style?.background};
 `;
 
@@ -68,8 +58,6 @@ const Description = styled.div`
     font-size: 3em;
   }
   color: inherit;
-  /* align-items: center;
-  align-self: center; */
   font-size: 2.85em;
   width: 100%;
   text-align: center;
@@ -81,8 +69,6 @@ const Text = styled.div`
   }
   margin: 0 auto 0 auto;
   color: ${props => props.style ? props.style.color : 'inherit'};;
-  /* align-items: center;
-  align-self: center; */
   font-size: 1.3em;
   width: 90%;
   text-align: center;
@@ -152,10 +138,6 @@ export default function Home() {
           style={{
             objectFit: 'cover',
           }} />
-        {/* </div> */}
-        {/* <h1>
-          Running across the United States
-        </h1> */}
 
         <DescriptionWrapper>
           <Description>

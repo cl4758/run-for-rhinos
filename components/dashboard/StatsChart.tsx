@@ -150,7 +150,6 @@ const options = {
 };
 
 
-
 interface StatsChartProps {
   distances: [],
   elevations: [],
@@ -174,7 +173,6 @@ function StatsChart({ distances, elevations, dates }: StatsChartProps) {
       },
       {
         label: 'Elevation',
-        // data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
         data: elevations,
         borderColor: '#f7c655',
         backgroundColor: '#f9d47f',

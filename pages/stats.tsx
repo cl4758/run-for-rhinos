@@ -19,13 +19,6 @@ function Stats() {
   const [city, setCity] = useState('');
   const [yearlyDistance, setYearlyDistance] = useState(0);
 
-  // const [activities, setActivities] = ;
-
-  // const { data: result, error } = useSWR('/api/database/activities', fetcher);
-  // if (error) return <h1>Something went wrong!</h1>
-  // if (!result) return <h1>Loading...</h1>
-
-
 
   async function getAthleteStats() {
 
@@ -53,9 +46,6 @@ function Stats() {
     const response = await fetch(`/api/strava/activities/${id}`);
     const activity = await response.json();
     console.log(activity);
-    // await fetch(`api/strava/activities/${8139852397}`).then((activity) => {
-
-    //   console.log(activity.json());
 
     const {
       distance,
@@ -98,10 +88,7 @@ function Stats() {
       total_elevation_gain,
       calories
     };
-    // console.log("run");
-    // console.log(activ);
-    //   return activity;
-    // });
+
     console.log(run);
     pushActivity(run);
     return activity;
@@ -144,18 +131,11 @@ function Stats() {
         <input type="submit" value="Submit" />
       </form>
 
-      {/* <div>{athlete.firstname}</div>
-      <div>{athlete.city}</div> */}
-      {/* <div>{result[0].name}</div> */}
       <button onClick={getAthleteStats}>get stats</button>
       <div>{yearlyDistance / 100} kms</div>
-      {/* <button onClick={getActivity}>get activity</button> */}
       <button onClick={getTotalDistance}>get total distance</button>
       <button onClick={refreshToken}>refresh</button>
       <button onClick={connectToDb}>connect</button>
-      {/* <button onClick={getLocation}>location</button> */}
-      {/* <button onClick={pushActivity}>push activity</button> */}
-      {/* <button onClick={getActivity}>get stats</button> */}
     </Wrapper>
   );
 }
