@@ -5,4 +5,11 @@ const nextConfig = {
   optimizeFonts: false,
 }
 
-module.exports = nextConfig
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+module.exports = withBundleAnalyzer({})
+
+module.exports = (_, nextConfig) => {
+  return withBundleAnalyzer(nextConfig);
+}

@@ -9,5 +9,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <Layout>
       <NextNProgress />
       <Component {...pageProps} />
-    </Layout>)
+    </Layout>
+  )
 }

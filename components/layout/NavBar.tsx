@@ -5,7 +5,10 @@ import { IconMenu2 } from '@tabler/icons';
 import { useState } from 'react';
 import overlay from '../../public/black.jpg';
 import Image from 'next/image';
+import { Rubik_Dirt } from '@next/font/google';
 
+
+const rubik = Rubik_Dirt({ subsets: ['latin'], weight: '400' });
 
 const NavLinks = styled.div`
   box-sizing: border-box;
@@ -77,7 +80,6 @@ const Title = styled.h2`
   }
   z-index: 1;
   margin-left: 1vw;
-  font-family: 'Rubik Dirt', 'Segoe UI', sans-serif;
   > a {
     text-decoration: none;
     color: inherit;
@@ -232,7 +234,7 @@ function NavBar({ links }: NavigationProps) {
         placeholder="blur"
       />
       <NavWrapper>
-        <Title><Link href="/">Run for Rhinos</Link></Title>
+        <Title><Link href="/" className={rubik.className}>Run for Rhinos</Link></Title>
         <MenuBurger onClick={handleOpen}><IconMenu2 /></MenuBurger>
         {open ? <DropdownMenuWrapper>
           <MenuOverlay alt="overlay"

@@ -2,6 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Footer from './Footer';
 import NavBar from './NavBar';
+import { Manrope } from '@next/font/google';
+
+const manrope = Manrope({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--manrope-font'
+});
 
 const LayoutContent = styled.div`
   display: flex;
@@ -30,7 +37,7 @@ function Layout({ children }: { children: any }) {
   { link: '/about', label: 'About' }];
 
   return (
-    <LayoutWrapper>
+    <LayoutWrapper className={manrope.className}>
       <NavBar links={routes} />
       <LayoutContent>
         {children}
