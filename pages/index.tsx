@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
-import rhino from '../public/rhino_rainbow-min.jpg';
-import overlay from '../public/black.jpg';
+import rhino from '../public/rhino_rainbow_dark_min.jpg';
 
 const BackgroundImage = styled(Image)`
   position: fixed;
@@ -127,17 +126,6 @@ export default function Home() {
             objectFit: 'cover',
           }}
         />
-        <OverlayImage
-          alt="overlay"
-          src={overlay}
-          placeholder="blur"
-          priority={true}
-          quality={100}
-          fill
-          sizes="100vw"
-          style={{
-            objectFit: 'cover',
-          }} />
 
         <DescriptionWrapper>
           <Description>
