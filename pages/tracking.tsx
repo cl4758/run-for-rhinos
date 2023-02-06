@@ -168,7 +168,7 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
                   latitude: 40.7128,
                   zoom: 8,
                   bearing: 0,
-                  pitch: 0,
+                  pitch: 0
                 }}
                 mapStyle="mapbox://styles/christinelai00/clbh59tn5003k14qp7d6vruss/draft?optimize=true"
               >
