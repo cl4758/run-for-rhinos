@@ -10,18 +10,9 @@ const BackgroundImage = styled(Image)`
   width: 100vw;
   overflow: hidden;
   z-index: -1;
-  box-shadow: 0 0 8px 8px white inset;
 `;
 
 
-const OverlayImage = styled(Image)`
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  z-index: -1;
-  opacity: 30%;
-`;
 
 const DescriptionWrapper = styled.div`
   display: flex;
@@ -35,13 +26,6 @@ const ScrollArea = styled.div`
   height: ${props => props.style ? props.style.height : '87vh'};
   width: 100%;
   background-color: ${props => props.style?.background};
-`;
-
-const ImageWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
 `;
 
 const Wrapper = styled.div`
@@ -112,12 +96,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* <div> */}
       <ScrollArea className="image">
         <BackgroundImage
           alt="Rhino in front of a rainbow"
           src={rhino}
-          placeholder="blur"
           priority={true}
           quality={100}
           fill

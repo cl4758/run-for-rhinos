@@ -26,14 +26,15 @@ const NavLinks = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  color: inherit;
   text-decoration: none;
   padding: 2%;
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 1em;
-  @media (min-width: 768px) {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #BDBDBD;
+  /* @media (min-width: 768px) {
     &::before {
     transition: 200ms;
     height: 5%;
@@ -44,18 +45,21 @@ const NavLink = styled(Link)`
     bottom: 10px;
   }
   &.active::before {
-    height: 5%;
-    content: "";
-    position: absolute;
-    background-color: #9ad5f4;
-    bottom: 10px;
     opacity: 1;
     width: 80%;
     }
-  }
+  } */
 
   &:hover {
     opacity: 1;
+    color: white;
+    font-size: 1.1em;
+  }
+
+  &.active {
+    color: white;
+    /* font-weight: 600; */
+    /* font-size: 1.1em; */
   }
 
   &:hover::before {
@@ -73,6 +77,7 @@ const NavLink = styled(Link)`
 const Title = styled.h2`
   color: inherit;
   align-items: center;
+  justify-content: center;
   font-weight: 500;
   @media (max-width: 768px) {
     width: 100%;
@@ -80,6 +85,8 @@ const Title = styled.h2`
   }
   z-index: 1;
   margin-left: 1vw;
+  bottom: 10px;
+  padding-bottom: 1%;
   > a {
     text-decoration: none;
     color: inherit;
@@ -92,7 +99,8 @@ const Button = styled.button`
   border: 2px solid #9ad5f4;
   color: inherit;
   font-size: 1em;
-  width: 25%;
+  font-weight: 500;
+  width: 16%;
   height: 50%;
   align-self: center;
   margin-left: auto;
@@ -133,7 +141,7 @@ const MenuBurger = styled.div`
 const NavWrapper = styled.div`
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 20% 22% 1fr;
     margin: 0 2vw 0 2vw;
     height: 13vh;
     & ${Title} {
@@ -164,7 +172,7 @@ const HeaderOverlay = styled(Image)`
   height: 10vh;
   width: 100vw;
   overflow: hidden;
-  opacity: 55%;
+  opacity: 45%;
 `;
 
 const DropdownMenu = styled.div`

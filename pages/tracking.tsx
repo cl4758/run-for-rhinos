@@ -164,11 +164,11 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
             <MapWrapper>
               <Map
                 initialViewState={{
-                  longitude: -74,
-                  latitude: 40.7128,
-                  zoom: 8,
+                  longitude: -96,
+                  latitude: 38,
+                  zoom: 3,
                   bearing: 0,
-                  pitch: 0,
+                  pitch: 0
                 }}
                 mapStyle="mapbox://styles/christinelai00/clbh59tn5003k14qp7d6vruss/draft?optimize=true"
               >
