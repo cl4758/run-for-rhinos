@@ -2,19 +2,13 @@
   {
     "city": "New York",
     "state": "New York",
-    "latitude": 40.6643,
-    "longitude": -73.9385
+    "latitude": 40.7826,
+    "longitude": -73.9656
   },
   {
     "city": "Los Angeles",
     "state": "California",
-    "latitude": 34.0194,
-    "longitude": -118.4108
-  },
-  {
-    "city": "Boston",
-    "state": "Massachusetts",
-    "latitude": 42.3546,
-    "longitude": -71.0708
+    "latitude": 33.9850,
+    "longitude": -118.4695
   }
 ]
