@@ -132,26 +132,27 @@ export default function Home() {
             <div>
               <h3 style={{ color: "black" }}>Start:</h3>
               <p style={{ color: "black" }}>
-                NYC <br></br>
-                12/17/22
-              </p>
+                LA <br></br>
+                3/1/23</p>
             </div>
             <div>
               <h3 style={{ color: "black" }}>End:</h3>
               <p style={{ color: "black" }}>
-                Boston <br></br>
-                12/23/22
+                NYC <br></br>
+                6/1/23
               </p>
             </div>
           </TextWrapper>
           <Text style={{ color: "black" }}>
-            <h2>NYC to Boston</h2>
-            <p style={{ color: "black" }}>
-              6 days, 231 miles run<br></br>
-              0 days, 0 miles left
-            </p>
+            <h2>LA to NYC</h2>
+            <p>Coming soon...</p>
+            {/* <p style={{ color: "black" }}>
+              0 days, 0 miles run<br></br>
+              90 days, 3078 miles left
+            </p> */}
           </Text>
         </DescriptionWrapper>
+
       </ScrollArea>
       <ScrollArea style={{ background: "black", height: "30vh" }}>
         <DescriptionWrapper>
@@ -177,24 +178,24 @@ export default function Home() {
             <div>
               <h3 style={{ color: "black" }}>Start:</h3>
               <p style={{ color: "black" }}>
-                LA <br></br>
-                3/1/23</p>
+                NYC <br></br>
+                12/17/22
+              </p>
             </div>
             <div>
               <h3 style={{ color: "black" }}>End:</h3>
               <p style={{ color: "black" }}>
-                NYC <br></br>
-                6/1/23
+                Boston <br></br>
+                12/23/22
               </p>
             </div>
           </TextWrapper>
           <Text style={{ color: "black" }}>
-            <h2>LA to NYC</h2>
-            <p>Coming soon...</p>
-            {/* <p style={{ color: "black" }}>
-              0 days, 0 miles run<br></br>
-              90 days, 3078 miles left
-            </p> */}
+            <h2>NYC to Boston</h2>
+            <p style={{ color: "black" }}>
+              6 days, 231 miles run<br></br>
+              0 days, 0 miles left
+            </p>
           </Text>
         </DescriptionWrapper>
       </ScrollArea>
