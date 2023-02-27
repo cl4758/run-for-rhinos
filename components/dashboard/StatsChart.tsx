@@ -111,7 +111,7 @@ const options = {
     x: {
       title: {
         display: true,
-        text: 'days'
+        text: 'date'
       },
       type: 'time' as const,
       time: {
