@@ -81,13 +81,9 @@ const ScrollArea = styled.div`
 `;
 
 
-function Tracking({ totals, graph, location }: { totals: any, graph: any, location: string }) {
+function Tracking({ totals, graph, location, locationData }: { totals: any, graph: any, location: string, locationData: any }) {
   mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnF4ZWN3MDF1bTN2cXczM2I4bWg4diJ9.dz7Y_IKDnuXkHNOHG-20Ug";
-  // const mapContainer = useRef(null);
-  // const map = useRef<mapboxgl.Map | null>(null);
-  // const [lng, setLng] = useState(-96);
-  // const [lat, setLat] = useState(38);
-  // const [zoom, setZoom] = useState(3.5);
+  console.log("location data: ", locationData);
 
 
   const stats = [{
@@ -135,23 +131,7 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
 
   //satellite-streets-v12
 
-  const pins = useMemo(
-    () =>
-      Markers.map((city, index) => (
-        <Marker
-          key={`marker-${index}`}
-          longitude={city.longitude}
-          latitude={city.latitude}
-          anchor="bottom"
-          onClick={e => {
-            e.originalEvent.stopPropagation();
-          }}
-        >
-          <Pin />
-        </Marker>
-      )),
-    []
-  );
+
 
 
   return (
@@ -164,9 +144,9 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
             <MapWrapper>
               <Map
                 initialViewState={{
-                  longitude: -96,
-                  latitude: 38,
-                  zoom: 3,
+                  longitude: locationData.end_longitude,
+                  latitude: locationData.end_latitude,
+                  zoom: 7,
                   bearing: 0,
                   pitch: 0
                 }}
@@ -175,7 +155,6 @@ function Tracking({ totals, graph, location }: { totals: any, graph: any, locati
                 <GeolocateControl position="top-left" />
                 <FullscreenControl position="top-left" />
                 <NavigationControl position="top-left" />
-                {pins}
               </Map>
             </MapWrapper>
           </AnotherWrapper>
@@ -207,12 +186,10 @@ export async function getStaticProps() {
     const locationRes = await fetch(`${server}/api/database/activities/location`);
     const locationData = await locationRes.json();
 
-    const mapbox_token = 'pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw';
+    console.log("location data", locationData);
 
-    // const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${locationData.end_longitude},${locationData.end_latitude}.json?types=place&access_token=pk.eyJ1IjoiY2hyaXN0aW5lbGFpMDAiLCJhIjoiY2xhYnFramVvMDJzODN3bXU4NDBnYW5obyJ9.MXroMmxiw0sNHpwHFu7rxw`);
-    // const result = await response.json();
     const place = await getLocation(locationData);
-    console.log(place);
+
 
     return {
       props: {
@@ -228,10 +205,12 @@ export async function getStaticProps() {
           elevations: graphData.elevations.map((e: number) => (e * 3.28).toFixed(1)),
           dates: graphData.dates.map((date: string) => new Date(new Date(date).toDateString()).toISOString())
         },
-        location: place
+        location: place,
+        locationData: locationData
       }
     }
   } catch (error) {
+    console.log(error);
     return {
       props: {
         totals: {
@@ -246,7 +225,8 @@ export async function getStaticProps() {
           elevations: [0],
           dates: [0],
         },
-        location: 'none'
+        location: 'none',
+        locationData: [0, 0]
       }
     }
   }
