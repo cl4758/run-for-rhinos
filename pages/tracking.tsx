@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 import StatsBar from '../components/dashboard/StatsBar';
 import mapboxgl from 'mapbox-gl';
@@ -7,6 +8,7 @@ import Map, { FullscreenControl, GeolocateControl, Marker, NavigationControl } f
 import Markers from '../lib/markers.json';
 import Pin from '../components/Pin';
 import { getLocation } from '../lib/services';
+import MapMarker from '../public/map-marker.png';
 
 
 
@@ -114,12 +116,12 @@ function Tracking({ totals, graph, location, locationData }: { totals: any, grap
     },
     {
       title: 'Avg. Distance',
-      data: (totals.distance / totals.day).toFixed(2),
+      data: (totals.distance / totals.day).toFixed(0),
       metric: 'mi',
       goal: 3078
     }, {
       title: 'Avg. Elevation',
-      data: (totals.elevation / totals.day).toFixed(2),
+      data: (totals.elevation / totals.day).toFixed(0),
       metric: 'ft'
     }, {
       title: 'Avg. Steps',
@@ -130,7 +132,6 @@ function Tracking({ totals, graph, location, locationData }: { totals: any, grap
     }];
 
   //satellite-streets-v12
-
 
 
 
@@ -155,6 +156,15 @@ function Tracking({ totals, graph, location, locationData }: { totals: any, grap
                 <GeolocateControl position="top-left" />
                 <FullscreenControl position="top-left" />
                 <NavigationControl position="top-left" />
+                <Marker
+                  longitude={locationData.end_longitude}
+                  latitude={locationData.end_latitude}
+                  onClick={e => {
+                    e.originalEvent.stopPropagation();
+                  }}
+                >
+                  <Image src={MapMarker} alt="map-marker" height={20} />
+                </Marker>
               </Map>
             </MapWrapper>
           </AnotherWrapper>
@@ -185,8 +195,6 @@ export async function getStaticProps() {
 
     const locationRes = await fetch(`${server}/api/database/activities/location`);
     const locationData = await locationRes.json();
-
-    console.log("location data", locationData);
 
     const place = await getLocation(locationData);
 
