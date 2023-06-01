@@ -203,10 +203,10 @@ export async function getStaticProps() {
       props: {
         totals: {
           day: sumData.days,
-          distance: (sumData.total_distance / 1000 / 1.6).toFixed(1),
+          distance: Math.round(sumData.total_distance / 1000 / 1.6),
           elevation: Math.round(sumData.total_elevation * 3.28),
           steps: Math.round(sumData.total_steps),
-          calories: sumData.total_calories
+          calories: Math.round(sumData.total_calories)
         },
         graph: {
           distances: graphData.distances.map((d: number) => (d / 1000 / 1.6).toFixed(1)),
