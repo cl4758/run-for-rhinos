@@ -17,8 +17,6 @@ import { Line, Bar } from 'react-chartjs-2';
 
 const ChartWrapper = styled.div`
   display: flex;
-  /* justify-content: center;
-  align-content: center; */
   align-items: center;
   width: 95%;
   height: 77%;
@@ -129,6 +127,7 @@ const options = {
       type: 'linear' as const,
       display: true,
       position: 'left' as const,
+      min: 26
     },
     y1: {
       title: {
